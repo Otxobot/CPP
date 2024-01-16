@@ -1,11 +1,25 @@
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() : count(0) {}
-PhoneBook::~PhoneBook() {}
+void PhoneBook::addContact()
+{
+    int i = 0;
 
-void PhoneBook::addContact(void){
-    std::string input;
+    while (i < 7)
+    {
+        if (contacts[i].emptyContact())
+        {
+            break;
+        }
+        i++;
+    }
+    contacts[i].create_contact(i);
+}
 
-    contacts[count % max].setIndex();
+void PhoneBook::printBook()
+{
+    std::cout << "\n     index| firstName|  lastName|  nickname\n\n";
+	for (int i = 0; i < 8; i++)
+		contacts[i].getInfo();
+	std::cout << "\n";
 }
