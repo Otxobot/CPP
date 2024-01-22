@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 14:16:31 by abasante          #+#    #+#             */
-/*   Updated: 2024/01/22 16:07:52 by abasante         ###   ########.fr       */
+/*   Created: 2024/01/22 16:17:12 by abasante          #+#    #+#             */
+/*   Updated: 2024/01/22 16:32:04 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
-int main(void)
+#include <iostream>
+
+class Zombie
 {
-	Zombie Zom("Zom");
-	Zom.announce();
-	randomChump("Zam");
-	return (0);
-}
+	private:
+		std::string _name;
+	public:
+		~Zombie();
+		void announce( void );
+		void setName (std::string n);
+};
+
+Zombie* zombieHorde( int N, std::string name );
+
+#endif
