@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 14:09:37 by abasante          #+#    #+#             */
-/*   Updated: 2024/01/22 14:09:39 by abasante         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:30:55 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ int main(void)
             {
                 if(phonebook.emptyBook())
                 {
-                    std::cout << "No hay contactos en la agenda.\n";
+                    std::cout << "\n====================================\n";
+                    std::cout << "\nNo hay contactos en la agenda.\n";
                     message();
                     continue ;
                 }
