@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:17:08 by abasante          #+#    #+#             */
-/*   Updated: 2024/01/22 16:30:32 by abasante         ###   ########.fr       */
+/*   Updated: 2024/01/22 16:33:07 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,3 @@ void Zombie::setName(std::string n)
 {
 	_name = n;
 }
-
