@@ -35,6 +35,7 @@ int main(void)
 {
     PhoneBook   phonebook;
     std::string command;
+    std::string index;
 
     message();
     while (1)
@@ -45,7 +46,24 @@ int main(void)
                 phonebook.addContact();
             else if (command == "SEARCH")
             {
+                if(phonebook.emptyBook())
+                {
+                    std::cout << "No hay contactos en la agenda.\n";
+                    message();
+                    continue ;
+                }
                 phonebook.printBook();
+                std::cout << "Introduce el index del contacto que quieres ver: ";
+                getline(std::cin, index);
+                if (emptyLine(index))
+                    std::cout << "Indice no valido\n";
+                if (isNumber(index))
+                {
+                    if (phonebook.printContact(stoi(index)) == 1)
+                        std::cout << "Contacto no valido\n";
+                }
+                else
+                    std::cout << "Indice no valido\n";
             }
             else if (command == "EXIT")
                 break ;

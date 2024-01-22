@@ -11,7 +11,7 @@ void Contact::create_contact(int i){
         getline(std::cin, _Lastname);
     }while (emptyLine(_Lastname));
     do{    
-        std::cout << "_Nickname: ";
+        std::cout << "Nick name: ";
         getline(std::cin, _Nickname);   
     }while (emptyLine(_Nickname));
     while (1){
@@ -52,4 +52,14 @@ void Contact::getInfo()
 		std::cout << std::setw(10) << (_Lastname.length() < 10 ? _Lastname : resizeString(_Lastname, 9)+'.') << "|";
 		std::cout << std::setw(10) << (_Nickname.length() < 10 ? _Nickname : resizeString(_Nickname, 9)+'.') << "\n";
 	}
+}
+
+void Contact::printInfo() {
+	std::cout << "\nInformación de contacto:\n";
+	std::cout << " firstName: " + _Firstname << std::endl;
+	std::cout << " lastName: " + _Lastname << std::endl;
+	std::cout << " nickname: " + _Nickname << std::endl;
+	std::cout << " phoneNumber: " + _Phonenumber << std::endl;
+	std::cout << " darkestSecret: " + _darkestsecret << std::endl;
+	std::cout << "\n";
 }

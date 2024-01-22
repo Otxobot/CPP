@@ -23,3 +23,20 @@ void PhoneBook::printBook()
 		contacts[i].getInfo();
 	std::cout << "\n";
 }
+
+bool PhoneBook::emptyBook() {
+	if (contacts[0].emptyContact() == 1)
+		return 1;
+	return 0;
+}
+
+bool PhoneBook::printContact(int index)
+{
+    if (index < 0 || index > 7 || contacts[index].emptyContact())
+    {
+        std::cout << "Indice no valido\n";
+        return (1);
+    }
+    contacts[index].printInfo();
+    return (0);
+}
