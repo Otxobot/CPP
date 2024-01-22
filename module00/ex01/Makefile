@@ -3,7 +3,7 @@ SRC		:=	PhoneBook.cpp Contact.cpp main.cpp
 HEADER	:=	PhoneBook.hpp
 
 CC		:=	c++
-CFLAGS	:=	-Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
+CFLAGS	:=	-Wall -Wextra -Werror -std=c++98 #-fsanitize=address -g3
 RM		:=	rm -rf
 OBJDIR	:=	objs
 OBJ		:=	$(addprefix $(OBJDIR)/, $(SRC:.cpp=.o))
