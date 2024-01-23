@@ -1,5 +1,6 @@
 NAME = brain
 FILES = main
+RM = rm -rf
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
 CC = c++ -Wall -Werror -Wextra -std=c++98

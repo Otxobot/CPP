@@ -5,33 +5,33 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abasante <abasante@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/01/22 16:53:45 by abasante          #+#    #+#              #
-#    Updated: 2024/01/23 14:53:57 by abasante         ###   ########.fr        #
+#    Created: 2024/01/22 17:50:40 by abasante          #+#    #+#              #
+#    Updated: 2024/01/23 18:46:07 by abasante         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = weapon
 
-CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
-RM = rm -rf
+CC = c++ -Wall -Werror -Wextra -std=c++98
 
-SRC = megaphone.cpp
-OBJ = megaphone.o
+FILES = HumanA HumanB Weapon main
+
+SRC = $(addsuffix .cpp, $(FILES))
+OBJ = $(addsuffix .o, $(FILES))
 
 all: $(NAME)
 
-$(NAME): $(OBJ)	
-	@$(CC) $(OBJ) -o $(NAME)	
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
-	@$(CC) -c $< -o $@
+%.o:%.cpp
+	$(CC) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJ)
+	@rm -rf $(OBJ)
 
 fclean: clean
-	@$(RM) $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 

@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 16:53:30 by abasante          #+#    #+#             */
-/*   Updated: 2024/01/23 14:54:10 by abasante         ###   ########.fr       */
+/*   Created: 2024/01/22 17:50:31 by abasante          #+#    #+#             */
+/*   Updated: 2024/01/23 18:27:58 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-int main(int ac, char **av) 
+#include "Weapon.hpp"
+
+class HumanA
 {
-	if (ac == 1)
-    	std::cout << " * LOUD AND UNBEARABLE FEEDBACK NOISE *";
-  	else 
-	{
-		for (int i = 1; i < ac; i++)
-		{
-			for (int j = 0; av[i][j]; j++)
-				std::cout << (char) toupper(av[i][j]);
-			if (i < ac - 1)
-				std::cout << ' ';
-		}
-  	}
-	std::cout << std::endl;
-  	return 0;
-}
+	private:
+		std::string _name;
+		Weapon &_weapon;
+	public:
+		HumanA(std::string name, Weapon &weapon);
+		~HumanA();
+		void attack(void);
+};
+
+#endif

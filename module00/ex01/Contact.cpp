@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 14:09:45 by abasante          #+#    #+#             */
-/*   Updated: 2024/01/22 14:09:49 by abasante         ###   ########.fr       */
+/*   Updated: 2024/01/23 14:24:46 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ std::string resizeString(std::string s, int len)
 
 void Contact::getInfo()
 {
-	if (!emptyLine(_Firstname)) 
+	if (!emptyLine(_Firstname))
     {
 		std::cout << std::setw(10) << index << "|";
 		std::cout << std::setw(10) << (_Firstname.length() < 10 ? _Firstname : resizeString(_Firstname, 9)+'.') << "|";

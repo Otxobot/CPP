@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 16:53:30 by abasante          #+#    #+#             */
-/*   Updated: 2024/01/23 14:54:10 by abasante         ###   ########.fr       */
+/*   Created: 2024/01/22 17:50:29 by abasante          #+#    #+#             */
+/*   Updated: 2024/01/23 18:59:29 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "HumanA.hpp"
 
-int main(int ac, char **av) 
+HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon) {
+}
+
+HumanA::~HumanA(){
+}
+
+void HumanA::attack()
 {
-	if (ac == 1)
-    	std::cout << " * LOUD AND UNBEARABLE FEEDBACK NOISE *";
-  	else 
-	{
-		for (int i = 1; i < ac; i++)
-		{
-			for (int j = 0; av[i][j]; j++)
-				std::cout << (char) toupper(av[i][j]);
-			if (i < ac - 1)
-				std::cout << ' ';
-		}
-  	}
-	std::cout << std::endl;
-  	return 0;
+	std::cout << _name << "attacks with their " << _weapon.getType() << std::endl;
 }
