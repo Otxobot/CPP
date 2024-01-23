@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 17:50:33 by abasante          #+#    #+#             */
-/*   Updated: 2024/01/23 19:15:46 by abasante         ###   ########.fr       */
+/*   Updated: 2024/01/23 19:17:07 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ void HumanB::attack(void)
 	if (_weapon)
 		std::cout << _name << "attacks with their " << _weapon->getType() << std::endl;
 	else
-		std::cout 
+		std::cout << _name << " has no weapon" << std::endl;
 }
