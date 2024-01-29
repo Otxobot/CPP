@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:05:57 by abasante          #+#    #+#             */
-/*   Updated: 2024/01/29 16:37:37 by abasante         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:39:22 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Fixed& Fixed::operator=( const Fixed &rhs ) {
 }
 
 Fixed::~Fixed(){
-
+	std::cout << "Destructor called\n";
 }
 
 int Fixed::getRawBits(void) const {
