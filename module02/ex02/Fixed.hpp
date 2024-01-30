@@ -46,7 +46,16 @@ class Fixed
 		Fixed	operator*(const Fixed &r)const;
 		Fixed	operator/(const Fixed &r)const;
 
-		
+		Fixed	operator++(int);
+		Fixed	operator--(int);
+		Fixed&  operator++(void);
+		Fixed&  operator--(void);
+
+		static Fixed& min(Fixed &lhs, Fixed &rhs);
+		static Fixed& max(Fixed  &lhs, Fixed &rhs);
+		static const Fixed& min(Fixed const &lhs, Fixed const &rhs);
+		static const Fixed& max(Fixed const &lhs, Fixed const &rhs);
+
 	private:
 		int	_fixedpointvalue;
 		static const int _bits = 8;

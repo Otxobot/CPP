@@ -20,7 +20,7 @@ Fixed::Fixed(const int n){
 }
 
 Fixed::Fixed(const float n){
-	_fixedpointvalue = std::roundf(n * (1 << _bits));
+	_fixedpointvalue = roundf(n * (1 << _bits));
 }
 
 Fixed::Fixed( const Fixed& obj) {
@@ -87,15 +87,65 @@ Fixed	Fixed::operator+(const Fixed &r)const{
 	return (this->toFloat() + r.toFloat());
 }
 
-Fixed	Fixed::operator-(const Fixed &r)const{
+Fixed Fixed::operator-(const Fixed &r)const{
 	return (this->toFloat() - r.toFloat());
 }
 
-Fixed	Fixed::operator*(const Fixed &r)const{
+Fixed Fixed::operator*(const Fixed &r)const{
 	return (this->toFloat() * r.toFloat());
 }
 
-Fixed	Fixed::operator/(const Fixed &r)const{
+Fixed Fixed::operator/(const Fixed &r)const{
 	return (this->toFloat() / r.toFloat());
 }
 
+Fixed& Fixed::operator++(void){
+	this->_fixedpointvalue++;
+	return *this;
+}
+
+Fixed& Fixed::operator--(void){
+	this->_fixedpointvalue--;
+	return *this;
+}
+
+Fixed Fixed::operator++(int){
+	Fixed tmp(*this);
+	++(*this);
+	return tmp;
+}
+
+Fixed Fixed::operator--(int){
+	Fixed tmp(*this);
+	--(*this);
+	return tmp;
+}
+
+Fixed & Fixed::min(Fixed  &lhs, Fixed &rhs)
+{
+	if (lhs < rhs)
+		return lhs;
+	else 
+		return rhs;
+}
+Fixed & Fixed::max(Fixed  &lhs, Fixed &rhs)
+{
+	if (lhs > rhs)
+		return lhs;
+	else 
+		return rhs;
+}
+const Fixed & Fixed::min(const Fixed &lhs, const Fixed &rhs)
+{
+	if (lhs < rhs)
+		return lhs;
+	else 
+		return rhs;
+}
+const Fixed & Fixed::max(const Fixed &lhs, const Fixed &rhs)
+{
+	if (lhs > rhs)
+		return lhs;
+	else 
+		return rhs;
+}
