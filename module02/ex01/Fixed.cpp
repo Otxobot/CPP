@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:41:02 by abasante          #+#    #+#             */
-/*   Updated: 2024/01/30 13:01:17 by abasante         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:02:54 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ Fixed::~Fixed(){
 }
 
 int Fixed::getRawBits(void) const {
-	std::cout << "getRawBits member function called\n";
 	return this->_fixedpointvalue;
 }
 

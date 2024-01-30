@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:41:11 by abasante          #+#    #+#             */
-/*   Updated: 2024/01/30 12:59:45 by abasante         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:02:26 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int main( void )
 	Fixed	a;
 	Fixed	const b( 10 );
 	Fixed	const c( 26.5f );
-	std::cout << "fixedpointvalue: " << c.getRawBits() << std::endl;
 	Fixed	const d( b );
 
 	a = Fixed( 1234.4321f );
