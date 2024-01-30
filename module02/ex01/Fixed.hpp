@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:41:09 by abasante          #+#    #+#             */
-/*   Updated: 2024/01/29 17:24:52 by abasante         ###   ########.fr       */
+/*   Updated: 2024/01/30 12:32:41 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed& obj);
-		Fixed(const int fpv);
-		Fixed(const int fpn);
+		Fixed(const int n);
+		Fixed(const float n);
 		~Fixed();
 		Fixed& operator=(const Fixed &rhs);
 		int getRawBits(void) const;
