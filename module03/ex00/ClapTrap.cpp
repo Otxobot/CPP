@@ -1,15 +1,15 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : _name("default"), hit_points(10), energy_points(10), attack_damage(0){
-    std::cout << "Default claptrap constructor called\n";
+    std::cout << GREEN << "Default claptrap constructor called\n";
 }
 
 ClapTrap::~ClapTrap(){
-    std::cout << "Claptrap destructor called\n";
+    std::cout << MAGENTA << "Claptrap destructor called\n";
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), hit_points(10), energy_points(10), attack_damage(0){
-    std::cout << "Claptrap name constructor called\n";
+    std::cout << BLUE << "Claptrap name constructor called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &ClapTrap){
@@ -38,7 +38,7 @@ void ClapTrap::attack(const std::string &target)
         std::cout << "Claptrap has no energy points\n";
         return ;
     }
-    std::cout << "Claptrap " << this->_name << " attacks " << target << ", causing " << this->attack_damage << " points of damage!\n";
+    std::cout << RED << "Claptrap " << this->_name << " attacks " << target << ", causing " << this->attack_damage << " points of damage!\n";
     this->energy_points -= 1;
 }
 
@@ -51,7 +51,8 @@ void ClapTrap::takeDamage(unsigned int amount)
     }
     if (amount > (unsigned)this->hit_points)
         amount = this->hit_points;
-    std::cout << "Claptrap " << this->_name << " took " << amount << " of damage!\n";
+    std::cout << RED << "Claptrap " << this->_name << " took " << amount << " of damage!\n";
+    this->hit_points -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -63,7 +64,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
     if (amount + this->hit_points > 10)
         amount = 10 - this->hit_points;
-    std::cout << "Claptrap " << this->_name << " is repaired for " << amount << " points!\n";
+    std::cout << GREEN << "Claptrap " << this->_name << " is repaired for " << amount << " points!\n";
     this->hit_points += amount;
     this->energy_points -= 1;
 }
