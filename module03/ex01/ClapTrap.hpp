@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 11:21:50 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/01 11:21:51 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/01 11:28:55 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 class ClapTrap
 {   
-    private:
+    protected:
         std::string _name;
         int hit_points;
         int energy_points;
