@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 16:41:02 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/01 13:29:31 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:30:22 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 
 Fixed::Fixed() : _fixedpointvalue(0) { 
 	std::cout << "Default Constructor called\n";
+}
+
+Fixed& Fixed::operator=( const Fixed &rhs ) {
+    std::cout << "Copy assignment operator called" << std::endl;
+    if (this != &rhs)
+	{
+        this->_fixedpointvalue = rhs.getRawBits();
+	}
+    return *this;
+}
+
+Fixed::Fixed( const Fixed& obj) {
+	std::cout << "Copy Constructor called\n";
+	this->setRawBits(obj.getRawBits());
 }
 
 Fixed::Fixed(const int n){
@@ -24,20 +38,6 @@ Fixed::Fixed(const int n){
 Fixed::Fixed(const float n){
 	std::cout << "Float constructor called\n";
 	_fixedpointvalue = std::roundf(n * (1 << _bits));
-}
-
-Fixed::Fixed( const Fixed& obj) {
-	std::cout << "Copy Constructor called\n";
-	this->setRawBits(obj.getRawBits());
-}
-
-Fixed& Fixed::operator=( const Fixed &rhs ) {
-    std::cout << "Copy assignment operator called" << std::endl;
-    if (this != &rhs)
-	{
-        this->_fixedpointvalue = rhs.getRawBits();
-	}
-    return *this;
 }
 
 Fixed::~Fixed(){
