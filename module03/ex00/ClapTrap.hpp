@@ -22,6 +22,25 @@
 
 #include <iostream>
 
+
+/**
+ * @class class ClapTrap
+ * @param In the private section of the class, 
+ * there is a string for the name of the claptrap, 
+ * and 3 integers for the hit points, energy points and attack damage.
+ * 
+ * 
+ * @param in the public section of the class,
+ * there are 3 constructors and 1 destructor.
+ * There is a default contructor, a contructor that receives a string
+ * as the parameter to set the name of the ClapTrap object.
+ * And there is a copy constructor.
+ * 
+ * @param this is a Orthodox Canonical Class form
+ * 
+ * @memberof @class there are 5 member functions in this class. 
+ * 
+ */
 class ClapTrap
 {   
     private:

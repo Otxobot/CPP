@@ -135,6 +135,7 @@ Fixed & Fixed::max(Fixed  &lhs, Fixed &rhs)
 	else 
 		return rhs;
 }
+
 const Fixed & Fixed::min(const Fixed &lhs, const Fixed &rhs)
 {
 	if (lhs < rhs)
@@ -142,6 +143,7 @@ const Fixed & Fixed::min(const Fixed &lhs, const Fixed &rhs)
 	else 
 		return rhs;
 }
+
 const Fixed & Fixed::max(const Fixed &lhs, const Fixed &rhs)
 {
 	if (lhs > rhs)

@@ -10,9 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file main.cpp
+ * @author abasante (absante@student.42.fr)
+ * @brief 
+ * @version 0.1
+ * @date 2024-02-02
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include "ClapTrap.hpp"
 
+/**
+ * @brief This is the main function, It declares 4 diferent ClapTrap
+ * objects. Some use different constructors.
+ * 
+ * The main function creates four ClapTrap objects (ASDF, A, B, C). 
+ * It sets their attack damage, makes them attack, 
+ * and makes them take damage or be repaired. 
+ * The operations are performed in the order they are written.
+ * 
+ * @return int 0
+ */
+
 int main() {
+	ClapTrap ASDF;
 	ClapTrap A("Ana"), B("Bob");
 	ClapTrap C(B);
 	A.setAttackDamage(10);
