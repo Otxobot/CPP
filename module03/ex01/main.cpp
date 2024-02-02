@@ -10,8 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/**
+ * @file main.cpp
+ * @author abasante
+ * @brief This file only contains the main function.
+ * @version 0.1
+ * @date 2024-02-02
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+
+/**
+ * @brief Main function.
+ * 
+ * @param void
+ * 
+ * 
+ * @return int 
+ */
 
 int main(void)
 {
