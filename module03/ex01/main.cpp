@@ -25,22 +25,23 @@
 #include "ScavTrap.hpp"
 
 /**
- * @brief Main function.
+ * @brief Main function. Tests to see the inheritance of claptrap->Scavtrap
  * 
  * @param void
- * 
  * 
  * @return int 
  */
 
 int main(void)
 {
-	ScavTrap scavi("scavi");
-	scavi.guardGate();
-	ScavTrap scavo(scavi);
-	ScavTrap equals;
+	ScavTrap name("scavtrap1");
+	ScavTrap pilla;
 
-	equals = scavi;
-	equals.attack("scavo");
+	pilla = name;
+	pilla.attack("scavtrap1");
+	name.takeDamage(20);
+	name.attack("pilla");
+	pilla.takeDamage(20);
+
 	return (0);
 }
