@@ -23,7 +23,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	this->attack_damage = 20;
 }
 
-ScavTrap::ScavTrap(ScavTrap const& obj) : ClapTrap(obj){
+ScavTrap::ScavTrap(ScavTrap const& obj) : ClapTrap(){
 	std::cout << "Scavtrap COPY constructor called\n";
 	*this = obj;
 }
