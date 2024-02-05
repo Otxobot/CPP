@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap
+NAME = fragtrap
 
 FILES = main ClapTrap ScavTrap
 
