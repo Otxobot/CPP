@@ -6,10 +6,10 @@ FragTrap::FragTrap() : ClapTrap(){
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-	this->hp = 100;
-	this->energy = 100;
-	this->attackDamage = 30;
-	std::cout << "FragTrap constructor called" << std::endl;
+	std::cout << "FragTrap name constructor called" << std::endl;
+	this->hit_points = 100;
+	this->energy_points = 100;
+	this->attack_damage = 30;
 }
 
 FragTrap::FragTrap( const FragTrap& obj ) : ClapTrap() {
@@ -23,10 +23,10 @@ FragTrap::~FragTrap() {
 
 FragTrap &FragTrap::operator=(const FragTrap &fragTrap) {
 	std::cout << "FragTrap assignation operator called" << std::endl;
-	this->name = fragTrap.name;
-	this->hp = fragTrap.hp;
-	this->energy = fragTrap.energy;
-	this->attackDamage = fragTrap.attackDamage;
+	this->_name = fragTrap._name;
+	this->hit_points = fragTrap.hit_points;
+	this->energy_points = fragTrap.energy_points;
+	this->attack_damage = fragTrap.attack_damage;
 	return *this;
 }
 
@@ -47,5 +47,5 @@ void FragTrap::attack(const std::string& target)
 }
 
 void FragTrap::highFivesGuys() {
-	std::cout << "FragTrap " << this->name << " gave high fives to everyone!" << std::endl;
+	std::cout << "Fragtrap " << this->_name << " gave high fives to everyone!" << std::endl;
 }
