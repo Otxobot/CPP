@@ -46,6 +46,7 @@ class Fixed
 		Fixed	operator*(const Fixed &r)const;
 		Fixed	operator/(const Fixed &r)const;
 
+		//increment/decrement
 		Fixed	operator++(int);
 		Fixed	operator--(int);
 		Fixed&  operator++(void);

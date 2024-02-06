@@ -13,18 +13,17 @@
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap() : ClapTrap() {
-	std::cout << "Scavtrap DEFAULT constructor called\n";
+	std::cout << "Scavtrap default constructor called\n";
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-	std::cout << "Scavtrap NAME constructor called\n";
 	this->hit_points = 100;
 	this->energy_points = 50;
 	this->attack_damage = 20;
 }
 
-ScavTrap::ScavTrap(ScavTrap const& obj) : ClapTrap(){
-	std::cout << "Scavtrap COPY constructor called\n";
+ScavTrap::ScavTrap(ScavTrap const& obj) : ClapTrap(obj){
+	std::cout << "Scavtrap copy constructor called\n";
 	*this = obj;
 }
 
