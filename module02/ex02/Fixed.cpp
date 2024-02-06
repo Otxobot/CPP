@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:04:18 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/01 12:55:10 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/01 18:40:36 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void Fixed::setRawBits(int const raw){
 }
 
 float Fixed::toFloat( void ) const {
-	return (float)this->_fixedpointvalue / (1 << _bits);
+	return this->_fixedpointvalue / (1 << _bits);
 }
 
 int Fixed::toInt( void ) const {
@@ -83,9 +83,18 @@ bool Fixed::operator!=(const Fixed &r)const{
 	return (this->getRawBits() != r.getRawBits());
 }
 
-Fixed	Fixed::operator+(const Fixed &r)const{
-	return (this->toFloat() + r.toFloat());
+Fixed	Fixed::operator+(const Fixed &r)const
+{
+	int a;
+	//Fixed tmp;
+	a = this->toFloat() + r.toFloat();
+	//return (this->toFloat() + r.toFloat());
+	return(a);
 }
+
+// Fixed Fixed::operator+(const Fixed &r)const{
+// 	return (this->toFloat() + r.toFloat());
+// }
 
 Fixed Fixed::operator-(const Fixed &r)const{
 	return (this->toFloat() - r.toFloat());
@@ -125,27 +134,28 @@ Fixed & Fixed::min(Fixed  &lhs, Fixed &rhs)
 {
 	if (lhs < rhs)
 		return lhs;
-	else 
+	else
 		return rhs;
 }
+
 Fixed & Fixed::max(Fixed  &lhs, Fixed &rhs)
 {
 	if (lhs > rhs)
 		return lhs;
-	else 
+	else
 		return rhs;
 }
 const Fixed & Fixed::min(const Fixed &lhs, const Fixed &rhs)
 {
 	if (lhs < rhs)
 		return lhs;
-	else 
+	else
 		return rhs;
 }
 const Fixed & Fixed::max(const Fixed &lhs, const Fixed &rhs)
 {
 	if (lhs > rhs)
 		return lhs;
-	else 
+	else
 		return rhs;
 }
