@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 16:49:17 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/06 16:49:19 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:15:06 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class FragTrap : public ClapTrap
         FragTrap& operator=(FragTrap const& rhs);
         ~FragTrap();
         void highFivesGuys(void);
-        void attack(const std::string& target);
 };
 
 #endif
