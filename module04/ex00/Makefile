@@ -17,7 +17,7 @@ FILES = main Animal Dog Cat
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
 
-CC = c++ -Wall -Wextra -Werror -std=c++98
+CC = c++ -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 all: $(NAME)
 
