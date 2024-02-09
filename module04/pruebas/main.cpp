@@ -1,43 +1,31 @@
+// CPP program without virtual destructor 
+// causing undefined behavior
+#include <iostream>
 
-
-// C++ program for virtual function overriding
-#include <bits/stdc++.h>
 using namespace std;
- 
+
 class base {
 public:
-    virtual void print()
-    {
-        cout << "print base class" << endl;
-    }
- 
-    void show() { cout << "show base class" << endl; }
+	base()	 
+	{ cout << "Constructing base\n"; }
+	 ~base()
+	{ cout<< "Destructing base\n"; }	 
 };
- 
-class derived : public base {
+
+class derived: public base {
 public:
-    // print () is already virtual function in
-    // derived class, we could also declared as
-    // virtual void print () explicitly
-    void print() { cout << "print derived class" << endl; }
- 
-    void show() { cout << "show derived class" << endl; }
+	derived()	 
+	{ cout << "Constructing derived\n"; }
+	~derived()
+	{ cout << "Destructing derived\n"; }
 };
- 
-// Driver code
+
 int main()
 {
-    base* bptr;
-    derived d;
-    bptr = &d;
- 
-    // Virtual function, binded at
-    // runtime (Runtime polymorphism)
-    bptr->print();
- 
-    // Non-virtual function, binded
-    // at compile time
-    bptr->show();
- 
+    base* ptr1 = new derived();
+    base* ptr2 = new derived();
+    //getchar();
+    delete ptr1;
+    delete ptr2;
     return 0;
 }

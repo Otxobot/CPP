@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/09 09:55:09 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/09 09:55:11 by abasante         ###   ########.fr       */
+/*   Created: 2024/02/09 09:57:03 by abasante          #+#    #+#             */
+/*   Updated: 2024/02/09 10:27:11 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog(){
-    std::cout << "Default Dog constructor\n";
-    this->type = "Dog";
+WrongCat::WrongCat(){
+    std::cout << "Default WrongCat constructor\n";
+    this->type = "WrongCat";
 }
 
-Dog::Dog(const Dog &rhs) : Animal(){
-    std::cout << "Dog copy constructor called\n";
+WrongCat::WrongCat(const WrongCat &rhs) : WrongAnimal(){
+    std::cout << "WrongCat copy constructor called\n";
     *this = rhs;
 }
 
-Dog &Dog::operator=(const Dog &rhs){
+WrongCat &WrongCat::operator=(const WrongCat &rhs){
     this->type = rhs.getType();
     return (*this);
 }
 
-Dog::~Dog(){
-    std::cout << "Dog destructor called\n";
+WrongCat::~WrongCat(){
+    std::cout << "WrongCat destructor called\n";
 }
 
-void Dog::makeSound() const{
-    std::cout << "Dog sound woof woof\n";
+void WrongCat::makeSound() const{
+    std::cout << "WrongCat sound miau\n";
 }
