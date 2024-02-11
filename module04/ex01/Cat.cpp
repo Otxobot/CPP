@@ -12,9 +12,10 @@
 
 #include "Cat.hpp"
 
-Cat::Cat(){
+Cat::Cat() : Animal("Cat") {
     std::cout << "Default Cat constructor\n";
-    this->type = "Cat";
+    //this->type = "Cat";
+    this->_brain = new Brain();
 }
 
 Cat::Cat(const Cat &rhs) : Animal(){
@@ -23,12 +24,17 @@ Cat::Cat(const Cat &rhs) : Animal(){
 }
 
 Cat &Cat::operator=(const Cat &rhs){
-    this->type = rhs.getType();
+    if (this != &rhs)
+    {
+        this->type = rhs.getType();
+        this->_brain = new Brain(*rhs._brain);
+    }
     return (*this);
 }
 
 Cat::~Cat(){
     std::cout << "Cat destructor called\n";
+    delete this->_brain;
 }
 
 void Cat::makeSound() const{

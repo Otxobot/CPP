@@ -15,37 +15,22 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
-
+#include "Brain.hpp"
 
 int main(void)
 {
-	std::cout << "========CREATE OBJECTS===========\n";
-	const Animal* meta = new Animal();
-	const Animal* dog = new Dog();
-	const Animal* cat = new Cat();
-	std::cout << "=============GET TYPE===========\n";
-	std::cout << dog->getType() << " " << std::endl;
-	std::cout << cat->getType() << " " << std::endl;
-	std::cout << "=============MAKE SOUND=========\n";
-	dog->makeSound(); //will output the cat sound!
-	cat->makeSound();
-	meta->makeSound();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 
-	delete meta;
-	delete dog;
-	delete cat;
+	delete j;//should not create a leak
+	delete i;
 
-    std::cout << std::endl << "------------- Wrong Animal -------------" << std::endl;
+	std::cout << "====================================\n";
 
-    const WrongAnimal *wrong = new WrongAnimal();
-    const WrongAnimal *wrongCat = new WrongCat();
+	const Animal* animals[4] = { new Dog(), new Dog(), new Cat(), new Cat() };
+    for ( int i = 0; i < 4; i++ ) {
+        delete animals[i];
+    }
 
-    std::cout << "Wrong Type: " << wrong->getType() << " " << std::endl;
-    std::cout << "WrongCat Type: " << wrongCat->getType() << " " << std::endl;
-    wrong->makeSound();
-    wrongCat->makeSound();
-
-    delete  wrong;
-    delete  wrongCat;
 	return 0;
 }
