@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,35 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
-Animal::Animal() : type("Animal") {
-    std::cout << "Default animal constructor called!\n";
+AAnimal::AAnimal() : type("AAnimal") {
+    std::cout << "Default Aanimal constructor called!\n";
 }
 
-Animal::Animal(const Animal &obj){
-    std::cout << "Copy animal constructor called!\n";
+AAnimal::AAnimal(const AAnimal &obj){
+    std::cout << "Copy Aanimal constructor called!\n";
     *this = obj;
 }
 
-Animal::Animal(std::string type){
-    std::cout << "Animal name constructor called!\n";
+AAnimal::AAnimal(std::string type){
+    std::cout << "AAnimal name constructor called!\n";
     this->type = type;
 }
 
-Animal &Animal::operator=(const Animal &rhs){
+AAnimal &AAnimal::operator=(const AAnimal &rhs){
     this->type = rhs.getType();
     return *this;
 }
 
-Animal::~Animal(){
-    std::cout << "Animal destructor called!\n";
+AAnimal::~AAnimal(){
+    std::cout << "AAnimal destructor called!\n";
 }
 
-std::string Animal::getType() const{
+std::string AAnimal::getType() const{
     return (this->type);
 }
 
-void Animal::makeSound() const{
-    std::cout << "Animal sound\n";
+void AAnimal::makeSound() const{
+    std::cout << "AAnimal sound\n";
 }
