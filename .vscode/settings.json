@@ -87,6 +87,20 @@
 		"thread": "cpp",
 		"regex": "cpp",
 		"valarray": "cpp",
-		"variant": "cpp"
+		"variant": "cpp",
+		"csetjmp": "cpp",
+		"csignal": "cpp",
+		"cfenv": "cpp",
+		"charconv": "cpp",
+		"cinttypes": "cpp",
+		"codecvt": "cpp",
+		"condition_variable": "cpp",
+		"cuchar": "cpp",
+		"map": "cpp",
+		"set": "cpp",
+		"source_location": "cpp",
+		"latch": "cpp",
+		"semaphore": "cpp",
+		"typeindex": "cpp"
 	}
 }

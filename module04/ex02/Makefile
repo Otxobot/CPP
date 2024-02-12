@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = brain
+NAME = aanimal
 
-FILES = main Animal Dog Cat WrongCat WrongAnimal Brain
+FILES = main AAnimal Dog Cat WrongCat WrongAnimal Brain
 
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))
