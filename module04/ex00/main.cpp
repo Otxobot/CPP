@@ -39,17 +39,17 @@ int main(void)
 	delete dog;
 	delete cat;
 
-    // std::cout << std::endl << "------------- Wrong Animal -------------" << std::endl;
+    std::cout << std::endl << "------------- Wrong Animal -------------" << std::endl;
 
-    // const WrongAnimal *wrong = new WrongAnimal();
-    // const WrongAnimal *wrongCat = new WrongCat();
+    const WrongAnimal *wrong = new WrongAnimal();
+    const WrongAnimal *wrongCat = new WrongCat();
 
-    // std::cout << "Wrong Type: " << wrong->getType() << " " << std::endl;
-    // std::cout << "WrongCat Type: " << wrongCat->getType() << " " << std::endl;
-    // wrong->makeSound();
-    // wrongCat->makeSound();
+    std::cout << "Wrong Type: " << wrong->getType() << " " << std::endl;
+    std::cout << "WrongCat Type: " << wrongCat->getType() << " " << std::endl;
+    wrong->makeSound();
+    wrongCat->makeSound();
 
-    // delete  wrong;
-    // delete  wrongCat;
+    delete  wrong;
+    delete  wrongCat;
 	return 0;
 }
