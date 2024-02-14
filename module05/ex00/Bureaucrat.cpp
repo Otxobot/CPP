@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 13:25:03 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/14 15:44:06 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/14 15:51:09 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Bureaucrat::Bureaucrat() : _name("default"), _grade(150) {
 	std::cout << "DEFAULT bureaucrat constructor called\n";
 }
 
-Bureaucrat::Bureaucrat(std::string &name, int grade) : _name(name) {
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	if (grade >= 150)
 		throw GradeTooLowException();
 	else if (grade <= 0)
@@ -63,4 +63,10 @@ void Bureaucrat::decrementGrade()
 	if (this->_grade >= 150)
 		throw GradeTooLowException();
 	this->_grade++;
+}
+
+std::ostream& operator<<( std::ostream& o, const Bureaucrat& rhs ) 
+{
+    o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
+    return o;
 }
