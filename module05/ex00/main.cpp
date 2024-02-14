@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 13:25:05 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/14 15:50:45 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/14 16:04:12 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int main()
     } catch (Bureaucrat::GradeTooHighException &e) {
         std::cout << e.what() << std::endl;
     }
-    return EXIT_SUCCESS;
+    return 0;
 }
