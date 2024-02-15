@@ -54,11 +54,14 @@ int main()
 		std::cout << "\nTEST 5\n";
 		Form F("Form t5", 84, 42);
 		std::cout << F;
-		Bureaucrat B1("Pepe", 100);
+		Bureaucrat B1("Pepe", 85);
 		B1.signForm(F);
 	}
-	catch (const std::exception& e) {
-		std::cout << "Caught exception: " << e.what() << "\n";
+	catch (const Bureaucrat::GradeTooLowException &e){
+		std::cout << "Caught exception: " << e.what() << std::endl;
 	}
+	//catch (const std::exception& e) {
+	//	std::cout << "Caught exception: " << e.what() << "\n";
+	//}
 	return 0;
 }
