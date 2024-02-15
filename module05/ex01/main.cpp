@@ -47,7 +47,7 @@ int main()
 		Bureaucrat B1("Pepe", 100);
 		F.beSigned(B1);
 	}
-	catch (const std::exception& e) {
+	catch (const Form::GradeTooLowException &e) {
 		std::cout << "Caught exception: " << e.what() << "\n";
 	}
 	try {
