@@ -17,6 +17,7 @@ Bureaucrat::Bureaucrat() : _name("default"), _grade(150) {
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
+	std::cout << "PARAMETER bureaucrat constructor called\n";
 	if (grade >= 150)
 		throw GradeTooLowException();
 	else if (grade <= 0)

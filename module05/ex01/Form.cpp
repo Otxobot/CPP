@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form() : _name("Default"), _isSigned(0), _gts(), _gte() {
+Form::Form() : _name("Default"), _isSigned(0), _gts(150), _gte(150) {
     std::cout << "DEFAULT form constructor called\n";
 }
 
@@ -26,8 +26,7 @@ Form& Form::operator=(const Form& rhs)
     return (*this);
 }
 
-Form::~Form()
-{
+Form::~Form(){
     std::cout << "Form destructor called\n";
 }
 
