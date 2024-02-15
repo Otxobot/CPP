@@ -79,10 +79,13 @@ std::ostream& operator<<( std::ostream& o, const Bureaucrat& rhs )
 void Bureaucrat::signForm(Form& src)
 {
 	if (this->_grade > src.getGTS())
-			throw Bureaucrat::GradeTooLowException();
+	{
+		std::cout << "Bureaucrat couldn't sign " << src.getName() << " because grade is too low\n";
+		throw Bureaucrat::GradeTooLowException();
+	}
 	else
 	{
 			src.beSigned(*this);
-			std::cout << this->_name << " signs " << src.getName() << std::endl;
+			std::cout << "Bureaucrat " << this->_name << " signed " << src.getName() << std::endl;
 	}
 }
