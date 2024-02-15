@@ -20,9 +20,18 @@ int main()
     std::cout << bureaucrat << std::endl;
 
     bureaucrat.incrementGrade();
-        // bureaucrat.decrementGrade();
     } catch (Bureaucrat::GradeTooHighException &e) {
         std::cout << e.what() << std::endl;
+    }
+
+    try{
+    Bureaucrat bureaucrat1("ley", 150);
+
+    std::cout << bureaucrat1 << std::endl;
+
+    bureaucrat1.decrementGrade();
+    } catch (Bureaucrat::GradeTooLowException &a){
+        std::cout << a.what() << std::endl;
     }
     return 0;
 }
