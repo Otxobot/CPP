@@ -30,9 +30,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat& obj)
 	*this = obj;	
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
+Bureaucrat& Bureaucrat::operator=(Bureaucrat const & rhs)
 {
-	this->_grade = rhs._grade;
+	if (this != &rhs)
+	{
+		this->_grade = rhs._grade;
+	}
 	return *this;
 }
 
@@ -69,4 +72,16 @@ std::ostream& operator<<( std::ostream& o, const Bureaucrat& rhs )
 {
     o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
     return o;
+}
+
+
+void Bureaucrat::signForm(Form& src)
+{
+	if (this->_grade > src.getGTS())
+			throw Bureaucrat::GradeTooLowException();
+	else
+	{
+			src.beSigned(*this);
+			std::cout << this->_name << " signs " << src.getName() << std::endl;
+	}
 }

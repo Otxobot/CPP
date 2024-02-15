@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bure
+NAME = form
 
-FILES = main Bureaucrat
+FILES = main Bureaucrat Form
 
 SRC = $(addsuffix .cpp, $(FILES))
 OBJ = $(addsuffix .o, $(FILES))

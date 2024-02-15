@@ -30,9 +30,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat& obj)
 	*this = obj;	
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
+Bureaucrat& Bureaucrat::operator=(Bureaucrat const & rhs)
 {
-	this->_grade = rhs._grade;
+	if (this != &rhs)
+	{
+		this->grade = rhs.grade;
+	}
 	return *this;
 }
 
