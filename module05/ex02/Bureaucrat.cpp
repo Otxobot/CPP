@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 13:25:03 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/19 15:40:08 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:39:07 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,10 @@ void Bureaucrat::signForm(AForm& src)
 			src.beSigned(*this);
 			std::cout << "Bureaucrat " << this->_name << " signed " << src.getName() << std::endl;
 	}
+}
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	form.execute(*this);
+	std::cout << this->_name << " executed " << form.getName() << std::endl;
 }
