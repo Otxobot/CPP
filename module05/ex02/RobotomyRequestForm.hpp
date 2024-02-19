@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:34:07 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/19 16:34:11 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/19 17:05:11 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@
 class Bureaucrat;
 class AForm;
 
-class ShrubberyCreationForm : public AForm
+class RobotomyRequestForm : public AForm
 {
     private:
         std::string target;
     public:
-        ShrubberyCreationForm();
-        ShrubberyCreationForm(std::string target);
-        ShrubberyCreationForm(const ShrubberyCreationForm& obj);
-		~ShrubberyCreationForm();
-        ShrubberyCreationForm &operator=(const ShrubberyCreationForm& rhs);
+        RobotomyRequestForm();
+        RobotomyRequestForm(std::string target);
+        RobotomyRequestForm(const RobotomyRequestForm& obj);
+		~RobotomyRequestForm();
+        RobotomyRequestForm &operator=(const RobotomyRequestForm& rhs);
 
-		std::string getTarget() const;
-		virtual void execute(Bureaucrat const &executor) const;
+        std::string getTarget() const;
+		void execute(Bureaucrat const &executor) const;
 };
 
 #endif
