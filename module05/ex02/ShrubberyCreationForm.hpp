@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/19 13:34:18 by abasante          #+#    #+#             */
+/*   Updated: 2024/02/19 15:12:41 by abasante         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 
@@ -7,6 +19,7 @@
 # include "Bureaucrat.hpp"
 
 class Bureaucrat;
+class AForm;
 
 class ShrubberyCreationForm : public AForm
 {
@@ -19,23 +32,8 @@ class ShrubberyCreationForm : public AForm
 		~ShrubberyCreationForm();
         ShrubberyCreationForm &operator=(const ShrubberyCreationForm& rhs);
 
-        void beSigned(Bureaucrat const &bureaucrat);
-		void execute(Bureaucrat const &executor) const;
-
-        class GradeTooHighException : public std::exception {
-			public:
-				virtual const char* what() const throw() {
-					return "Grade too high";
-				}
-		};
-
-		class GradeTooLowException : public std::exception {
-			public:
-				virtual const char* what() const throw() {
-					return "Grade too low";
-				}
-		};
-
+		std::string getTarget() const;
+		virtual void execute(Bureaucrat const &executor) const;
 };
 
 #endif

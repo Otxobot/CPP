@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/19 13:33:41 by abasante          #+#    #+#             */
+/*   Updated: 2024/02/19 15:11:55 by abasante         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef AFORM_HPP
 # define AFORM_HPP
 
@@ -20,11 +32,11 @@ class AForm
         AForm(const AForm& obj);
         AForm& operator=(const AForm& rhs);
         virtual ~AForm();
-        const std::string getName() const;
+        std::string getName() const;
         bool getIsSigned() const;
         int getGTS() const;
 		int getGTE() const;
-        virtual void beSigned(const Bureaucrat& src) = 0;
+        void beSigned(const Bureaucrat& src);
         virtual void execute(Bureaucrat const &executor) const = 0;
 		class GradeTooHighException : public std::exception {
 			public:

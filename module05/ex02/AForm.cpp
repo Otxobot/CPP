@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/19 13:33:47 by abasante          #+#    #+#             */
+/*   Updated: 2024/02/19 15:43:54 by abasante         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AForm.hpp"
 
 AForm::AForm() : _name("Default"), _isSigned(0), _gts(150), _gte(150) {
@@ -44,6 +56,14 @@ int AForm::getGTS() const{
 
 int AForm::getGTE() const{
     return (this->_gte);
+}
+
+void AForm::beSigned(const Bureaucrat& src)
+{
+    if (src.getGrade() > this->_gts)
+		throw AForm::GradeTooLowException();
+	else
+		this->_isSigned = true;
 }
 
 std::ostream & operator<<(std::ostream & o, AForm const & src){

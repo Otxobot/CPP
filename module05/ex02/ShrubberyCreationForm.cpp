@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/19 13:34:13 by abasante          #+#    #+#             */
+/*   Updated: 2024/02/19 15:36:36 by abasante         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137), target("default")
@@ -20,24 +32,48 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
     std::cout << "ShrubberyCreationForm DESTRUCTOR called\n";
 }
 
+std::string ShrubberyCreationForm::getTarget() const
+{
+	return (this->target);
+}
+
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs)
 {
-	if (this != &other)
+	if (this != &rhs)
 	{
-		this->_isSigned = other._isSigned;
+		this->target = rhs.getTarget();
 	}
 	return *this;
 }
 
-void	ShrubberyCreationForm::beSigned(Bureaucrat const &bureaucrat)
-{
-	if (bureaucrat.getGrade() > this->_gts)
-		throw AForm::GradeTooLowException();
-	else
-		this->_isSigned = true;
-}
-
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
-    
+	if (!this->getIsSigned())
+		throw AForm::GradeTooLowException();
+	else if (executor.getGrade() > this->getGTE())
+		throw AForm::GradeTooLowException();
+	else
+	{
+		std::string filename = this->target + "_shrubbery";
+		std::ofstream ofs(filename.c_str());
+		if (ofs.is_open())
+		{
+			ofs << "          v" << std::endl;
+			ofs << "         >X<" << std::endl;
+			ofs << "          A" << std::endl;
+			ofs << "         d$b" << std::endl;
+			ofs << "        d$$b" << std::endl;
+			ofs << "       d$$$b" << std::endl;
+			ofs << "      d$$$$$b" << std::endl;
+			ofs << "     d$$$$$$$b" << std::endl;
+			ofs << "    d$$$$$$$$$b" << std::endl;
+			ofs << "   d$$$$$$$$$$$b" << std::endl;
+			ofs << "  d$$$$$$$$$$$$$b" << std::endl;
+			ofs << " d$$$$$$$$$$$$$$$b" << std::endl;
+			ofs << "d$$$$$$$$$$$$$$$$$b" << std::endl;
+			ofs << "       d$$P" << std::endl;
+			ofs << "      d$$P" << std::endl;
+		}
+		ofs.close();
+	}
 }

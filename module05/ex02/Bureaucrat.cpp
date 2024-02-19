@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 13:25:03 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/14 15:51:09 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/19 15:40:08 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,7 @@ std::ostream& operator<<( std::ostream& o, const Bureaucrat& rhs )
     return o;
 }
 
-
-void Bureaucrat::signForm(Form& src)
+void Bureaucrat::signForm(AForm& src)
 {
 	if (this->_grade > src.getGTS())
 	{
