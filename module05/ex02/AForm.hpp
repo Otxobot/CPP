@@ -51,6 +51,13 @@ class AForm
 					return "Grade too low";
 				}
 		};
+
+        class FormNotSignedException : public std::exception {
+			public:
+				virtual const char* what() const throw() {
+					return "Form is not signed";
+				}
+		};
 };
 
 std::ostream& operator<<(std::ostream& o, AForm const& src);

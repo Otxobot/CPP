@@ -60,10 +60,20 @@ int AForm::getGTE() const{
 
 void AForm::beSigned(const Bureaucrat& src)
 {
-    if (src.getGrade() > this->_gts)
-		throw AForm::GradeTooLowException();
+    if (!this->_isSigned)
+    {
+        if (src.getGrade() > this->_gts)
+        {
+            std::cout << src.getName() << " couldn'nt sign " << this->_name << " because grade is too low\n";
+            throw AForm::GradeTooLowException();
+        }
+        std::cout << src.getName() << " signed " << this->_name << std::endl;
+        this->_isSigned = 1;
+    }
 	else
-		this->_isSigned = true;
+	{
+        std::cout << "This Form is already signed\n";
+    }
 }
 
 std::ostream & operator<<(std::ostream & o, AForm const & src){

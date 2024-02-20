@@ -77,15 +77,19 @@ std::ostream& operator<<( std::ostream& o, const Bureaucrat& rhs )
 
 void Bureaucrat::signForm(AForm& src)
 {
-	if (this->_grade > src.getGTS())
+	if (!src.getIsSigned())
 	{
-		std::cout << "Bureaucrat couldn't sign " << src.getName() << " because grade is too low\n";
-		throw Bureaucrat::GradeTooLowException();
+		if (this->_grade > src.getGTS())
+		{
+			std::cout << "Bureaucrat couldn't sign " << src.getName() << " because grade is too low\n";
+			throw Bureaucrat::GradeTooLowException();
+		}
+		src.beSigned(*this);
+		std::cout << "Bureaucrat signed " << src.getName() << std::endl;
 	}
 	else
 	{
-			src.beSigned(*this);
-			std::cout << "Bureaucrat " << this->_name << " signed " << src.getName() << std::endl;
+		std::cout << "This form is already signed\n";
 	}
 }
 
