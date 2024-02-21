@@ -24,7 +24,7 @@ AForm*   Intern::makeForm(std::string name, std::string target)
 {
 
     std::string formNames[] = {"robotomy request", "presidential pardon", "shrubbery creation"};
-    AForm* form;
+    AForm* form = NULL;
 
     for (int i = 0; i < 3; i++) 
     {
