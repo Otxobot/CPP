@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:33:34 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/19 17:10:30 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:20:23 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,4 @@ int main()
         std::cout << e.what() << std::endl;
     }
     return 0;
-	return 0;
 }
