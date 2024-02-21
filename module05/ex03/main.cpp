@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 13:33:34 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/19 17:10:30 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:19:31 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ int main()
     Intern  someRandomIntern;
     AForm*   rrf;
 
-    // rrf = someRandomIntern.makeForm("robotomy", "Bender");
     rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    std::cout << "lets see.-----> " << rrf->getName() << std::endl;
+    std::cout << "name de rrf-> " << rrf->getName() << std::endl;
     delete rrf;
+    std::cout << "====================================================================\n";
     rrf = someRandomIntern.makeForm("presidential pardon", "hello");
-    std::cout << "lets see NOW-----> " << rrf->getName() << std::endl;
+    std::cout << "name de rrf despues de otro makeform-----> " << rrf->getName() << std::endl;
     delete rrf;
     return 0;
 }
