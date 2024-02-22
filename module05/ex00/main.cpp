@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 13:25:05 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/14 16:04:12 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/21 11:28:08 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int main()
     std::cout << bureaucrat << std::endl;
 
     bureaucrat.incrementGrade();
-    } catch (Bureaucrat::GradeTooHighException &e) {
+    } catch (std::exception &e) {
         std::cout << e.what() << std::endl;
     }
-
+    std::cout << "================================\n";
     try{
     Bureaucrat bureaucrat1("ley", 150);
 
