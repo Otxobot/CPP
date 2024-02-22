@@ -20,7 +20,7 @@ class Form
         Form(const Form& obj);
         Form& operator=(const Form& rhs);
         ~Form();
-        const std::string getName() const;
+        std::string getName() const;
         bool getIsSigned() const;
         int getGTS() const;
 		int getGTE() const;
