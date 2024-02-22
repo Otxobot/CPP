@@ -10,3 +10,23 @@
 #                                                                              #
 # **************************************************************************** #
 
+NAME = convert
+
+SRCS = main.cpp ScalarConverter.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+CFLAGS = c++ -Wall -Wextra -Werror --std=c++98 -fsanitize=address -g3
+
+${NAME}: $(OBJS)
+		@$(CFLAGS) -o $(NAME) $(OBJS)
+
+all : ${NAME}
+
+clean :
+		@rm -f ${OBJS}
+fclean : clean
+		@rm -f ${NAME}
+re : fclean all
+
+.PHONY: all clean fclean re
