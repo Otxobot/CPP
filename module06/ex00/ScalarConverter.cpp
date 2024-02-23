@@ -41,7 +41,7 @@ void ScalarConverter::convert(const std::string &str)
 			throw std::exception();
 	if (std::isdigit(str[0]))
 	{
-			i = static_cast<int>(std::atoi(str.c_str()));
+			i = (std::atoi(str.c_str()));
 			f = static_cast<float>(std::atof(str.c_str()));
 			d = std::atof(str.c_str());
 	}
