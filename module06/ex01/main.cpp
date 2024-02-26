@@ -1,26 +1,22 @@
 
 #include "Serializer.hpp"
 
-int main() {
-	{
-		Data D;
-		Data *res;
-		D.i = -21;
+int main() 
+{
+	Data D;
+	Data *ptr;
 
-		res = Serializer::deserialize(Serializer::serialize(&D));
-		std::cout << "\nTEST 1:\n";
-		std::cout << "  before: " << D.i << "\n";
-		std::cout << "  after:  " << res->i << "\n";
-	}
-	{
-		uintptr_t i = 42;
-		uintptr_t o;
+	ptr = &D;
 
-		o = Serializer::serialize(Serializer::deserialize(i));
-		std::cout << "\nTEST 2:\n";
-		std::cout << "  before: " << i << "\n";
-		std::cout << "  after:  " << o << "\n";
-	}
-	std::cout << "\n";
+	uintptr_t unsigned_pointer;
+
+	unsigned_pointer = Serializer::serialize(ptr);
+
+	std::cout << Serializer::serialize(ptr) << std::endl;
+	std::cout << unsigned_pointer << std::endl;
+	std::cout << "================================\n";
+	std::cout << Serializer::deserialize(unsigned_pointer) << std::endl;
+	std::cout << ptr << std::endl;
+	
 	return 0;
 }

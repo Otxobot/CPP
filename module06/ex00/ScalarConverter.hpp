@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:45:17 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/21 17:02:44 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:25:07 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ScalarConverter
 
 	public:
 		~ScalarConverter();
-		static void convert(const std::string &str);	
+		static void convert(const std::string &str);
 };
 
 #endif
