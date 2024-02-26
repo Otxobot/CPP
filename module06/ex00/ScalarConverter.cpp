@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:45:15 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/26 17:24:59 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:45:46 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void ScalarConverter::convert(const std::string &str)
 	if (i < 32 || i > 126)
 	{
 		std::cout << "=========================\n";
-		std::cout << "char: Non displayable\nchar: no imprimible" << std::endl;
+		std::cout << "char: no imprimible" << std::endl;
 		std::cout << "=========================\n";
 	}
 	else
