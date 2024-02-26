@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:45:15 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/26 16:40:03 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:24:59 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,16 @@ void ScalarConverter::convert(const std::string &str)
 	char c;
 	
 	try{
-		if (str == "nan" || str == "nanf" || str == "inff" || str == "inf" || str == "-inff" || str == "-inf")
+		if (str == "nan" || str == "nanf" || str == "inff" || str == "-inf" || str == "+inf" || str == "-inff" || str == "+inff" || str == "-inf")
 			throw std::exception();
 	if (std::isdigit(str[0]))
 	{
-			std::cout << "entra aqui primero\n";
 			i = (std::atoi(str.c_str()));
 			f = static_cast<float>(std::atof(str.c_str()));
 			d = std::atof(str.c_str());
 	}
 	else
 	{
-			std::cout << "entra aqui\n";
 			i = static_cast<int>(str[0]);
 			f = static_cast<float>(i);
 			d = static_cast<double>(i);
