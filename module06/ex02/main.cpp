@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:49:56 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/27 15:27:51 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:29:34 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ class C : public Base {};
 
 Base* generate()
 {
-    // Seed the random number generator
     std::srand(std::time(0));
 
     int randomNum = std::rand() % 3;
