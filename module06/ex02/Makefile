@@ -6,13 +6,13 @@
 #    By: abasante <abasante@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 13:49:58 by abasante          #+#    #+#              #
-#    Updated: 2024/02/27 13:50:12 by abasante         ###   ########.fr        #
+#    Updated: 2024/02/27 15:02:29 by abasante         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = base
 
-FILES = main A B C Base
+FILES = main 
 
 SRC = $(addsuffix .cpp, $(FILES))
 
