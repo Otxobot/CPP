@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 13:49:56 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/27 15:05:52 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:27:51 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,28 @@ void identify(Base *p)
 		std::cout << "El puntero es C\n";
 }
 
-// void identify(Base &p)
-// {
-	
-// }
+void identify(Base &p)
+{
+	try{
+		A& a = dynamic_cast<A&>(p);
+		std::cout << "La referencia es A\n";
+		(void)a;
+	} catch (std::bad_cast){
+		try{
+			B& b = dynamic_cast<B&>(p);
+			std::cout << "La referencia es B\n";
+			(void)b;
+		} catch (std::bad_cast){
+			try{
+				C& c = dynamic_cast<C&>(p);
+				std::cout << "La referencia es C\n";
+				(void)c;
+			} catch (std::bad_cast){
+				
+			}
+		}
+	}
+}
 
 int main(void)
 {
@@ -71,5 +89,6 @@ int main(void)
 
 	ptr = generate();
 
-	identify(ptr);	
+	identify(ptr);
+	identify(*ptr);
 }
