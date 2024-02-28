@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:45:15 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/21 17:04:14 by abasante         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:45:46 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void ScalarConverter::convert(const std::string &str)
 	char c;
 	
 	try{
-		if (str == "nan" || str == "nanf" || str == "inff" || str == "inf" || str == "-inff" || str == "-inf")
+		if (str == "nan" || str == "nanf" || str == "inff" || str == "-inf" || str == "+inf" || str == "-inff" || str == "+inff" || str == "-inf")
 			throw std::exception();
 	if (std::isdigit(str[0]))
 	{
@@ -51,16 +51,18 @@ void ScalarConverter::convert(const std::string &str)
 			f = static_cast<float>(i);
 			d = static_cast<double>(i);
 	}
-
-		c = static_cast<char>(i);
-		std::cout << "char: ";
-		if (i < 32 || i > 126)
-			std::cout << "Non displayable" << std::endl;
-		else
-			std::cout << "'" << c << "'" << std::endl;
-		std::cout << "int: " << i << std::endl;
-		std::cout << "float: " << f << "f" << std::endl;
-		std::cout << "double: " << d << std::endl;
+	c = static_cast<char>(i);
+	if (i < 32 || i > 126)
+	{
+		std::cout << "=========================\n";
+		std::cout << "char: no imprimible" << std::endl;
+		std::cout << "=========================\n";
+	}
+	else
+		std::cout << "char: " << "'" << c << "'" << std::endl;
+	std::cout << "int: " << i << std::endl;
+	std::cout << "float: " << f << "f" << std::endl;
+	std::cout << "double: " << d << std::endl;
 	}
 	catch (std::exception &e)
 	{
