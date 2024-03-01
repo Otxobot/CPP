@@ -34,16 +34,22 @@ void specialCase(const std::string &str)
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
-	if (str == "nanf") {
+	if (str == "nanf") 
+	{
 		std::cout << "float: " << str << std::endl;
 		std::cout << "double: nan" << std::endl;
-	} else if (str == "+inff") {
+	} 
+	else if (str == "+inff") 
+	{
 		std::cout << "float: " << str << std::endl;
 		std::cout << "double: +inf" << std::endl;
-	} else if (str == "-inff") {
+	} 
+	else if (str == "-inff") 
+	{
 		std::cout << "float: " << str << std::endl;
 		std::cout << "double: -inf" << std::endl;
-	} else {
+	} else 
+	{
 		std::cout << "float: " << str << "f" << std::endl;
 		std::cout << "double: " << str << std::endl;
 	}
@@ -76,7 +82,7 @@ void checkType(const std::string &str)
 	else
 		std::cout << "char: " << "'" << c << "'" << std::endl;
 	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << f << ((f-i == 0.0f) ? ".0" : "") << "f\n"; 
+	std::cout << "float: " << f << ((f-i == 0.0f) ? ".0" : "") << "f\n";
 	std::cout << "double: " << d << ((d-i == 0.0f) ? ".0" : "") << std::endl;
 }
 
