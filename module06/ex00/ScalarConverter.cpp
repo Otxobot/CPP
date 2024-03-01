@@ -29,7 +29,6 @@ ScalarConverter & ScalarConverter::operator=(ScalarConverter const & rhs){
 	return *this;
 }
 
-
 void specialCase(const std::string &str)
 {
 	std::cout << "char: impossible" << std::endl;
@@ -55,6 +54,29 @@ void specialCase(const std::string &str)
 	}
 }
 
+bool isNumber(const std::string &str)
+{
+	int i = 0;
+	if (str[i] == '-')
+		i += 1;
+	for (; str[i]; i++)
+		if (!std::isdigit(str[i]))
+			return false;
+	return true;
+}
+
+bool isCharString(const std::string &str)
+{
+	int i = 0;
+
+	for (; str[i]; i++)
+	{
+		if (!std::isalpha(str[i]))
+			return (0);
+	}
+	return (1);
+}
+
 void checkType(const std::string &str)
 {
 	int i;
@@ -62,19 +84,35 @@ void checkType(const std::string &str)
 	float f;
 	char c;
 
-	if (std::isdigit(str[0]))
+	if (!isCharString(str))
 	{
-			i = (std::atoi(str.c_str()));
-			f = static_cast<float>(std::atof(str.c_str()));
-			d = static_cast<double>(std::atof(str.c_str()));
+		std::cout << "ha entrado aqui\n";
+		return ;
 	}
+	if (isNumber(str))
+	{
+		std::cout << "es un numero entoces entra aqui\n";
+		i = std::atof(str.c_str());
+		c = static_cast<char>(i);
+		f = static_cast<float>(i);
+		d = static_cast<double>(i);
+	}
+	if (str.size() == 1 && !isNumber(str))
+	{
+		c = str[0];
+		i = static_cast<int>(c);
+		f = static_cast<float>(c);
+		d = static_cast<double>(c);
+	}
+	// if (std::isdigit(str[0]))
+	// {
+	// }
 	else
 	{
 			i = static_cast<int>(str[0]);
 			f = static_cast<float>(i);
 			d = static_cast<double>(i);
 	}
-	c = static_cast<char>(i);
 	if (i < 32 || i > 126)
 	{
 		std::cout << "char: no imprimible" << std::endl;
@@ -88,6 +126,8 @@ void checkType(const std::string &str)
 
 void ScalarConverter::convert(const std::string &str)
 {
+	if (str.empty())
+		return ;
 	if (str == "nan" || str == "nanf" || str == "+inf" || str == "-inf" || str == "+inff" || str == "-inff")
 		specialCase(str);
 	else
