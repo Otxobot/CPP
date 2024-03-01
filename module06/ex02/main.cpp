@@ -10,11 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "Base.hpp"
-// #include "A.hpp"
-// #include "C.hpp"
-// #include "B.hpp"
-
 #include <cstdlib>
 #include <iostream>
 class Base

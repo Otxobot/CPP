@@ -29,16 +29,33 @@ ScalarConverter & ScalarConverter::operator=(ScalarConverter const & rhs){
 	return *this;
 }
 
-void ScalarConverter::convert(const std::string &str)
+
+void specialCase(const std::string &str)
+{
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	if (str == "nanf") {
+		std::cout << "float: " << str << std::endl;
+		std::cout << "double: nan" << std::endl;
+	} else if (str == "+inff") {
+		std::cout << "float: " << str << std::endl;
+		std::cout << "double: +inf" << std::endl;
+	} else if (str == "-inff") {
+		std::cout << "float: " << str << std::endl;
+		std::cout << "double: -inf" << std::endl;
+	} else {
+		std::cout << "float: " << str << "f" << std::endl;
+		std::cout << "double: " << str << std::endl;
+	}
+}
+
+void checkType(const std::string &str)
 {
 	int i;
 	double d;
 	float f;
 	char c;
-	
-	try{
-		if (str == "-inff" || str == "+inff" || str == "nanf" || str == "-inf" || str == "+inf"  || str == "nan")
-			throw std::exception();
+
 	if (std::isdigit(str[0]))
 	{
 			i = (std::atoi(str.c_str()));
@@ -57,16 +74,18 @@ void ScalarConverter::convert(const std::string &str)
 		std::cout << "char: no imprimible" << std::endl;
 	}
 	else
+	{
 		std::cout << "char: " << "'" << c << "'" << std::endl;
 	std::cout << "int: " << i << std::endl;
 	std::cout << "float: " << f << "f" << std::endl;
 	std::cout << "double: " << d << std::endl;
 	}
-	catch (std::exception &e)
-	{
-		std::cout << "char: impossible" << std::endl;
-		std::cout << "int: impossible" << std::endl;
-		std::cout << "float: impossible" << std::endl;
-		std::cout << "double: impossible" << std::endl;
-	}
+}
+
+void ScalarConverter::convert(const std::string &str)
+{
+	if (str == "nan" || str == "nanf" || str == "+inf" || str == "-inf" || str == "+inff" || str == "-inff")
+		specialCase(str);
+	else
+		checkType(str);
 }
