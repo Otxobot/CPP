@@ -74,12 +74,10 @@ void checkType(const std::string &str)
 		std::cout << "char: no imprimible" << std::endl;
 	}
 	else
-	{
 		std::cout << "char: " << "'" << c << "'" << std::endl;
 	std::cout << "int: " << i << std::endl;
-	std::cout << "float: " << f << "f" << std::endl;
-	std::cout << "double: " << d << std::endl;
-	}
+	std::cout << "float: " << f << ((f-i == 0.0f) ? ".0" : "") << "f\n"; 
+	std::cout << "double: " << d << ((d-i == 0.0f) ? ".0" : "") << std::endl;
 }
 
 void ScalarConverter::convert(const std::string &str)
