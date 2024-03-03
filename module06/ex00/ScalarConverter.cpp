@@ -65,16 +65,25 @@ bool isNumber(const std::string &str)
 	return true;
 }
 
-bool isCharString(const std::string &str)
+
+bool isDecimal(const std::string& str, int len) 
 {
+	bool dot = false;
 	int i = 0;
 
-	for (; str[i]; i++)
-	{
-		if (!std::isalpha(str[i]))
-			return (0);
+	if (str[i] == '-')
+		i+=1;
+	for (; i < len; i++) {
+		if (!std::isdigit(str[i]) && dot)
+			return false;
+		if (str[i] == '.')
+			dot = true;
+		if (!std::isdigit(str[i]) && !dot)
+			return false;
 	}
-	return (1);
+	if (dot == true)
+		return true;
+	return false;
 }
 
 void checkType(const std::string &str)
@@ -84,11 +93,6 @@ void checkType(const std::string &str)
 	float f;
 	char c;
 
-	if (!isCharString(str))
-	{
-		std::cout << "ha entrado aqui\n";
-		return ;
-	}
 	if (isNumber(str))
 	{
 		std::cout << "es un numero entoces entra aqui\n";
@@ -99,19 +103,25 @@ void checkType(const std::string &str)
 	}
 	if (str.size() == 1 && !isNumber(str))
 	{
+		std::cout << "ha entrado aqui en caso de que no sea un digito y solo sea un caracter\n";
 		c = str[0];
 		i = static_cast<int>(c);
 		f = static_cast<float>(c);
 		d = static_cast<double>(c);
 	}
-	// if (std::isdigit(str[0]))
-	// {
-	// }
-	else
+	if (isDecimal(str, str.size() - 1) && str[str.size() - 1] == 'f')
 	{
-			i = static_cast<int>(str[0]);
-			f = static_cast<float>(i);
-			d = static_cast<double>(i);
+		f = std::strtod(str.c_str(), NULL);
+		c = static_cast<char>(f);
+		i = static_cast<int>(f);
+		d = static_cast<double>(f);
+	}
+	if (isDecimal(str, str.size()))
+	{
+		d = std::strtod(str.c_str(), NULL);
+		c = static_cast<char>(d);
+		i = static_cast<int>(d);
+		f = static_cast<double>(d);
 	}
 	if (i < 32 || i > 126)
 	{
