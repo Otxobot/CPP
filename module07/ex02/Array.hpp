@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:06:51 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/04 16:47:41 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:13:44 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ class Array
 template <typename T>
 std::ostream& operator<<(std::ostream& o, const Array<T>& array)
 {
-    for (unsigned int i = 0; i < array._size(); i++)
+    for (unsigned int i = 0; i < array.size(); i++)
         o << array[i] << " ";
     return o;
 }
