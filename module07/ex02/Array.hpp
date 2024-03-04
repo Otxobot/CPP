@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:06:51 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/04 16:40:51 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:47:41 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Array
 		T *_array;
 		unsigned int _size;
 	public:
-		Array() : Array(new T[0]), _size(0) {}
+		Array() : _array(new T[0]), _size(0) {}
 		Array(unsigned int n) : _array(new T[n]), _size(n) {}
 		Array(Array const &rhs) : _array(new T[rhs._size]), _size(rhs._size) {}
 		Array & operator=(Array const &rhs)
@@ -32,7 +32,7 @@ class Array
 				delete _array;
 				_array = new T[rhs._size];
 				_size = rhs._size;
-				for (int i = 0; i < _size; i++)
+				for (unsigned int i = 0; i < _size; i++)
 					_array[i] = rhs._array[i];
 			}
 			return (*this);
