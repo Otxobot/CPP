@@ -6,12 +6,14 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:06:51 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/04 15:31:59 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:27:42 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
+
+#include <iostream>
 
 template <typename T>
 class Array
@@ -35,28 +37,45 @@ class Array
 			}
 			return (*this);
 		}
-		T & operator[](int i)
+		// T & operator[](unsigned int i)
+		// {
+		// 	try{
+		// 		if (i >= _size)
+		// 			throw std::exception();
+		// 		return _array[i];
+		// 	}
+		// 	catch(const std::exception& e)
+		// 	{
+		// 		std::cout << "Index out of range" << std::endl;
+		// 		return _array[0];
+		// 	}
+		// }
+		T& operator[]( unsigned int i ) const
 		{
-			try{
-				if (i >= length)
-					throw std::exception();
-				return array[i];
-			}
-			catch(const std::exception& e)
-			{
-				std::cout << "Index out of range" << std::endl;
-				return array[0];
-			}
-		}
+        	if ( i >= _size )
+            	throw OutOfBoundsException();
+        	return _array[i];
+    	}
 		~Array()
 		{
-			delete[] array;
+			delete[] _array;
 		}
 		
-		unsigned int size() const;
+		unsigned int size() const
 		{
 			return (_size);
 		}
+		class OutOfBoundsException : public std::exception {
+        public:
+            virtual const char* what() const throw() { return "Index is out of bounds";}
+    };
 };
+
+template < typename T >
+std::ostream& operator<<( std::ostream& out, const Array<T>& arr ) {
+    for ( unsigned int i( 0 ); i < arr._size(); i++ )
+        out << arr[i] << " ";
+    return out;
+}
 
 #endif
