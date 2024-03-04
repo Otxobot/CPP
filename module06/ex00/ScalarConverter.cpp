@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:45:15 by abasante          #+#    #+#             */
-/*   Updated: 2024/02/29 10:49:19 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/04 12:37:34 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ void checkType(const std::string &str)
 
 	if (isNumber(str))
 	{
-		std::cout << "es un numero entoces entra aqui\n";
 		i = std::atof(str.c_str());
 		c = static_cast<char>(i);
 		f = static_cast<float>(i);
@@ -103,7 +102,6 @@ void checkType(const std::string &str)
 	}
 	if (str.size() == 1 && !isNumber(str))
 	{
-		std::cout << "ha entrado aqui en caso de que no sea un digito y solo sea un caracter\n";
 		c = str[0];
 		i = static_cast<int>(c);
 		f = static_cast<float>(c);
