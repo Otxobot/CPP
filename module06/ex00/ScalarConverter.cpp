@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:45:15 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/04 12:37:34 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/05 14:36:38 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,13 @@ void checkType(const std::string &str)
 		c = static_cast<char>(d);
 		i = static_cast<int>(d);
 		f = static_cast<double>(d);
+	}
+	if (!isNumber(str))
+	{
+		c = str[0];
+		i = static_cast<int>(c);
+		f = static_cast<float>(c);
+		d = static_cast<double>(c);
 	}
 	if (i < 32 || i > 126)
 	{
