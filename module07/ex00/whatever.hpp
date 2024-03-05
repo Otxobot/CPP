@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 12:57:16 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/04 13:11:34 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/05 17:45:13 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void swap(T &x, T &y)
 
 	tmp = x;
 	x = y;
-	y = tmp;	
+	y = tmp;
 }
 
 template <typename T>
