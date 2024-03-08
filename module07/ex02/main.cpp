@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:06:49 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/04 16:45:59 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/08 12:43:37 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 int main(void)
 {
-	    std::cout << "-----------------------------------------------------" << std::endl;
+	std::cout << "-----------------------------------------------------" << std::endl;
 
-    Array< float > test;
+    Array<float> test;
 
-    Array< int > intArray( SIZE );
-    Array< int > intArray2( SIZE - 5 );
+    Array<int> intArray(SIZE);
+    Array<int> intArray2(SIZE - 5);
 
-    for ( unsigned int i = 0; i < intArray.size(); i++ )
+    for (unsigned int i = 0; i < intArray.size(); i++)
         intArray[i] = i * 2;
 
     std::cout << "Int Array 1: " << intArray << std::endl;
