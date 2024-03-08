@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:06:49 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/08 12:53:23 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/08 13:01:12 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int main(int, char**)
     }
     try
     {
-        numbers[-2] = 0;
+        numbers[1] = 0;
     }
     catch(const std::exception& e)
     {
@@ -84,7 +84,7 @@ int main(int, char**)
     }
     try
     {
-        numbers[MAX_VAL] = 0;
+        numbers[MAX_VAL - 1] = 0;
     }
     catch(const std::exception& e)
     {
@@ -93,7 +93,8 @@ int main(int, char**)
 
     for (int i = 0; i < MAX_VAL; i++)
     {
-        numbers[i] = rand();
+        std::cout << numbers[i] << std::endl;
+        //numbers[i] = rand();
     }
     delete [] mirror;//
     return 0;
