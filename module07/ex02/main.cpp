@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 15:06:49 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/08 12:43:37 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/08 12:50:43 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int main(void)
     try {
         std::cout << "Accessing a valid index: " << intArray[5] << std::endl;
         std::cout << "Accessing an invalid index: " << intArray[SIZE] << std::endl;
+        //std::cout << "Accessing an invalid index: " << intArray[SIZE - 1] << std::endl;
     } catch ( Array< int >::OutOfBoundsException& e ) {
         std::cout << "Error: " << e.what() << std::endl;
     }
