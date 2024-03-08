@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 13:16:17 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/08 11:46:06 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/08 15:38:19 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(void)
 	int arr1[] = { 1, 2, 3, 4, 5 };
 
     std::cout << "arr1: " << std::endl;
-    ::iter(arr1, N, print);
+    ::iter1(arr1, N, );
 
     double arr2[] = { 1.1, 2.2, 3.3, 4.4, 5.5 };
 
