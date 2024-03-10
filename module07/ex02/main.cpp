@@ -25,7 +25,7 @@ int main(void)
     Array<int> intArray2(SIZE - 5);
 
     for (unsigned int i = 0; i < intArray.size(); i++)
-        intArray[i] = i * 2;
+        intArray[i] = i;
 
     std::cout << "Int Array 1: " << intArray << std::endl;
 

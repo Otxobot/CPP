@@ -29,7 +29,7 @@ class Array
 		{
 			if (this != &rhs)
 			{
-				delete _array;
+				delete[] _array;
 				_array = new T[rhs._size];
 				_size = rhs._size;
 				for (unsigned int i = 0; i < _size; i++)
