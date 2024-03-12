@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:37:55 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/12 13:16:23 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:40:14 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main()
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
-		// std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.shortestSpan() << std::endl;
 		// std::cout << sp.longestSpan() << std::endl;
 	return 0;
 }

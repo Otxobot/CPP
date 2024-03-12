@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:38:01 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/12 13:29:52 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:51:35 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <algorithm>
 #include <deque>
 #include <stdexcept>
+#include <numeric>
 
 class Span
 {
