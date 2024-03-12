@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 16:45:15 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/05 14:36:38 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/12 12:28:08 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void specialCase(const std::string &str)
 {
 	std::cout << "char: impossible" << std::endl;
 	std::cout << "int: impossible" << std::endl;
-	if (str == "nanf") 
+	if (str == "nanf")
 	{
 		std::cout << "float: " << str << std::endl;
 		std::cout << "double: nan" << std::endl;

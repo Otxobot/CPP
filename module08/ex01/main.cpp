@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:37:55 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/11 11:06:58 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:16:23 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,13 @@
 
 int main()
 {
-	
+		Span sp = Span(5);
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+		// std::cout << sp.shortestSpan() << std::endl;
+		// std::cout << sp.longestSpan() << std::endl;
+	return 0;
 }

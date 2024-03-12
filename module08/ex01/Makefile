@@ -6,13 +6,13 @@
 #    By: abasante <abasante@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/07 16:37:57 by abasante          #+#    #+#              #
-#    Updated: 2024/03/11 11:06:41 by abasante         ###   ########.fr        #
+#    Updated: 2024/03/12 13:17:20 by abasante         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = span
 
-FILES = main
+FILES = main Span
 
 SRC = $(addsuffix .cpp, $(FILES))
 

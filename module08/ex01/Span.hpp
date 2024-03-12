@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:38:01 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/11 11:26:51 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/12 13:29:52 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,23 @@
 #include <list>
 #include <algorithm>
 #include <deque>
+#include <stdexcept>
 
 class Span
 {
 	private:
+		unsigned int _size;
 		std::vector<int> _numbers;
-		unsigned int _N;
 	public:
 		Span();
-		Span(unsigned int n) : _N(n), _numbers() {}
-		Span(const Span& obj) : _N(obj._N), _numbers(obj._numbers) {}
+		Span(unsigned int n);
+		Span(const Span& obj);
+		~Span();
+		Span& operator=(const Span& rhs);
 		
+		void addNumber(const int nta);
+		int shortestSpan();
+		int longestSpan();
 };
 
 #endif

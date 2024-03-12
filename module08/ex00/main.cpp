@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:41:21 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/07 17:00:07 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/12 12:22:29 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int main()
 	std::cout << "================================" << std::endl;
 	std::cout << "List:" << std::endl;
 	std::list<int> list(arr, arr + sizeof(arr) / sizeof(int));
-	easyfind(list, 4);
+	easyfind(list, 7);
 	std::cout << "================================" << std::endl;
 	std::cout << "Deque:" << std::endl;
 	std::deque<int> deque(arr, arr + sizeof(arr) / sizeof(int));
-	easyfind(deque, 5);
+	easyfind(deque, 2);
 
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:41:18 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/07 17:00:15 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/12 12:21:31 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 template <typename T>
 void easyfind(T& container, int number)
 {
-	if ( std::find( container.begin(), container.end(), number ) != container.end() )
+	if (std::find(container.begin(), container.end(), number) != container.end())
         std::cout << "Found" << std::endl;
     else
-        std::cout << "Not found" << std::endl;	
+        std::cout << "Not found" << std::endl;
 }
 
 #endif
