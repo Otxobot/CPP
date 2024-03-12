@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:38:01 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/12 13:51:35 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/12 15:55:05 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ class Span
 		void addNumber(const int nta);
 		int shortestSpan();
 		int longestSpan();
+
+		void addManyNumbers();
 };
 
 #endif

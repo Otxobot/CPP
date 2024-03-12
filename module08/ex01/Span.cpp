@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:37:59 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/12 13:52:09 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:01:06 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,23 @@ int Span::shortestSpan()
 {
 	if (this->_numbers.size() < 2)
 		throw std::logic_error("Not enough numbers to calculate span");
-	std::sort(_numbers.begin(), _numbers.end());
-	for (unsigned int i = 0; i < this->_size; i++)
+	std::sort(this->_numbers.begin(), this->_numbers.end());
+	
+	int minSpan = _numbers[1] - _numbers[0];
+	for (size_t i = 1; i < this->_numbers.size(); ++i) 
 	{
-		std::cout << this->_numbers[i] << std::endl;
-	}
-	std::vector<int> diff(_numbers.size() - 1);
-	std::adjacent_difference(_numbers.begin(), _numbers.end() - 1, diff.begin());
-	// for (unsigned int i = 0; i < (this->_size - 1); i++)
-	// {
-	// 	std::cout << "diff: " << diff[i] << std::endl;
-	// }
-	return *std::min_element(diff.begin(), diff.end());
+        int currentSpan = _numbers[i] - _numbers[i - 1];
+        minSpan = std::min(minSpan, currentSpan);
+    }
+	return (minSpan);
 }
 
 int Span::longestSpan()
 {
-	return 0;
+    if (_numbers.size() < 2)
+        throw std::logic_error("Not enough numbers to calculate span");
+    int min = *std::min_element(_numbers.begin(), _numbers.end());
+    int max = *std::max_element(_numbers.begin(), _numbers.end());
+
+    return (max - min);
 }
