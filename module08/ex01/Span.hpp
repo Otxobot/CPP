@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:38:01 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/12 15:55:05 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:09:18 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@
 #include <vector>
 #include <list>
 #include <algorithm>
-#include <deque>
 #include <stdexcept>
-#include <numeric>
 
 class Span
 {
@@ -37,7 +35,8 @@ class Span
 		int shortestSpan();
 		int longestSpan();
 
-		void addManyNumbers();
+		template <typename T>
+		void addManyNumbers(T begin, T end);
 };
 
 #endif

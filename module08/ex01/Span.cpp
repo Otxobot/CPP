@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:37:59 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/12 16:01:06 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/12 17:04:07 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,17 @@ int Span::longestSpan()
         throw std::logic_error("Not enough numbers to calculate span");
     int min = *std::min_element(_numbers.begin(), _numbers.end());
     int max = *std::max_element(_numbers.begin(), _numbers.end());
-
+	
     return (max - min);
+}
+
+template <typename T>
+void Span::addManyNumbers(T begin, T end)
+{
+	if (_numbers.size() >= _size || (unsigned int)absolute(begin-end) > _size)
+		throw std::out_of_range("Max number of integers reached\n");
+	for (; begin < end; begin++)
+	{
+		_numbers.push_back(*begin);
+	}
 }
