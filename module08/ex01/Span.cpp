@@ -88,3 +88,8 @@ void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator
 		_numbers.push_back(*begin);
 	}
 }
+
+std::vector<int>::iterator Span::getbegin()
+{
+	return (this->_numbers.begin());
+}

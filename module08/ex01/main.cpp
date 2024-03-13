@@ -14,21 +14,32 @@
 
 int main()
 {
-		Span sp(100);
+	std::srand(time(0));
+	Span sp = Span(5);
+	sp.addNumber(5);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
 
-		int arr[] = {1, 423, 3645, 345345 ,45645 , 24534};
-		
-		std::vector<int> nums(arr, arr + sizeof(arr) / sizeof(arr[0]));
-		
-		sp.addNumber(6);
-		sp.addNumber(3);
-		sp.addNumber(17);
-		sp.addNumber(9);
-		sp.addNumber(11);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
-		
-		sp.addRange(nums.begin(), nums.end());
+	Span sp1 = Span(10);
+	std::vector<int> v;
+	for(int i = 0; i < 10; i++)
+		v.push_back(rand() % 10);
+	sp1.addRange(v.begin(), v.end());
 
-	return 0;
+	std::vector<int>::iterator it = sp1.getbegin();
+
+	for(int i = 0; i < 10; i++)
+	{
+		std::cout << *it << " ";
+		it++;
+	}
+
+	std::cout << std::endl;
+	std::cout << "Shortest span: " <<sp1.shortestSpan() << std::endl;
+	std::cout << "Longest span: " << sp1.longestSpan() << std::endl;
+	return (0);
 }
