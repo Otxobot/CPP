@@ -72,8 +72,14 @@ int Span::longestSpan()
     return (max - min);
 }
 
-template <typename T>
-void Span::addManyNumbers(T begin, T end)
+int absolute(int number) 
+{
+	if (number < 0)
+		return -number;
+	return number;
+}
+
+void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
 	if (_numbers.size() >= _size || (unsigned int)absolute(begin-end) > _size)
 		throw std::out_of_range("Max number of integers reached\n");
