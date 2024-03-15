@@ -1,6 +1,6 @@
 NAME = stack
 
-FILES = main Span
+FILES = main
 
 SRC = $(addsuffix .cpp, $(FILES))
 
