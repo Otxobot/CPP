@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:50:42 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/18 16:15:25 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/18 17:02:03 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ int main()
         std::cout << a << "->" << *it << std::endl;
         ++it;
     }
-    std::stack<int> s(mstack);
-    return 0;
+    MutantStack<int> s(mstack);
+    return (0);
 }
