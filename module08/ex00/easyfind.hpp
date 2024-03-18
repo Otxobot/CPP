@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:41:18 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/18 15:22:00 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:40:41 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void easyfind(T& container, int number)
         std::cout << "Found" << std::endl;
     else
         std::cout << "Not found" << std::endl;
-}
+}   
 
 #endif
