@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:37:55 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/18 16:05:50 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:42:28 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ int main()
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
 
-	Span sp1 = Span(10);
+	Span sp1 = Span(10000);
 	std::vector<int> v;
-	for(int i = 0; i < 10; i++)
-		v.push_back(rand() % 10);
+	for(int i = 0; i < 10000; i++)
+		v.push_back(rand() % 100);
 	sp1.addRange(v.begin(), v.end());
 
 	std::vector<int>::iterator it = sp1.getbegin();
 
 	std::cout << "============sp1:================" << std::endl;
-	for(int i = 0; i < 10; i++)
+	for(int i = 0; i < 10000; i++)
 	{
 		std::cout << *it << " ";
 		it++;

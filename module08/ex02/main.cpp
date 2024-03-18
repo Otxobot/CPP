@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 13:50:42 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/18 14:24:27 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:15:25 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int main()
     MutantStack<int> mstack;
     mstack.push(5);
     mstack.push(17);
-    std::cout << mstack.top() << std::endl;
+    std::cout << "top: " << mstack.top() << std::endl;
     mstack.pop();
-    std::cout << mstack.size() << std::endl;
+    std::cout << "size: "<< mstack.size() << std::endl;
     mstack.push(3);
     mstack.push(5);
     mstack.push(737);
