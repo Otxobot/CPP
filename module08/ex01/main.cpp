@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 16:37:55 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/12 17:38:17 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:05:50 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,15 @@ int main()
 
 	std::vector<int>::iterator it = sp1.getbegin();
 
+	std::cout << "============sp1:================" << std::endl;
 	for(int i = 0; i < 10; i++)
 	{
 		std::cout << *it << " ";
 		it++;
 	}
-
+	std::cout << std::endl;
+	std::cout << "============sp1:================" << std::endl;
+	
 	std::cout << std::endl;
 	std::cout << "Shortest span: " <<sp1.shortestSpan() << std::endl;
 	std::cout << "Longest span: " << sp1.longestSpan() << std::endl;
