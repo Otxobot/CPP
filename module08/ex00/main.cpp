@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 12:41:21 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/12 12:22:29 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:22:10 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main()
 
 	std::cout << "Vector:" << std::endl;
 	std::vector<int>  vect(arr, arr + sizeof(arr) / sizeof(int));
-	easyfind(vect, 1);
+	easyfind(vect, 3);
 	std::cout << "================================" << std::endl;
 	std::cout << "List:" << std::endl;
 	std::list<int> list(arr, arr + sizeof(arr) / sizeof(int));
