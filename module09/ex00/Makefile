@@ -6,11 +6,11 @@
 #    By: abasante <abasante@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/19 17:46:38 by abasante          #+#    #+#              #
-#    Updated: 2024/03/19 18:08:51 by abasante         ###   ########.fr        #
+#    Updated: 2024/03/19 18:29:26 by abasante         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bitcoin
+NAME = btc
 
 FILES = main BitcoinExchange
 
