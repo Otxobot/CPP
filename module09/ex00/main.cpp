@@ -10,3 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "BitcoinExchange.hpp"
+
+int main(int ac, char **av)
+{
+    if (ac != 2)
+    {
+        std::cerr << "Falta el archivo" << std::endl;
+        return 1;
+    }
+    BitcoinExchange exchange;
+    exchange.parse_input(av[1]);
+    //exchange.printExchangeRates(archivo_exchange);
+}

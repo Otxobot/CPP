@@ -10,3 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
+
+#include <iostream>
+#include <map>
+#include <fstream>
+
+
+class BitcoinExchange
+{
+    private:
+        std::map<std::string, float> _data;
+        
+    public:
+        BitcoinExchange();
+        BitcoinExchange(const BitcoinExchange& obj);
+        BitcoinExchange& operator=(const BitcoinExchange& rhs);
+        ~BitcoinExchange();
+
+        void parse_input(std::string filename);
+        std::map<std::string, float> getCsvData(const std::string &database1);
+
+};
+
+#endif
