@@ -13,7 +13,7 @@
 #include "BitcoinExchange.hpp"
 
 BitcoinExchange::BitcoinExchange() {
-    this->_data = getCsvData("data.csv");
+    getCsvData("data.csv");
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& obj){
@@ -33,20 +33,28 @@ BitcoinExchange::~BitcoinExchange(){
 
 }
 
-std::map<std::string, float> BitcoinExchange::getCsvData(const std::string &database1)
+void BitcoinExchange::getCsvData(const std::string &database1)
 {
     std::ifstream input(database1.c_str());
     if (!input.is_open())
     {
-        std::cout << "No se puede abrir el archivo que contiene la base de datos" << std::endl;
-        return _data;
+        std::cout << "No se puede abrir el archivo" << std::endl;
+        return ;
     }
     std::string line;
     while (std::getline(input, line))
     {
-        std::cout << "aver" << line << std::endl;
+        size_t pos = line.find(",");
+        if (pos == line.npos)
+        {
+            std::cout << "Formato incorrecto de data.csv" << std::endl;
+            return ;
+        }
+        std::string date = line.substr(0, line.find(","));
+        std::string rate = line.substr(line.find(",") + 2);
+        this->_data[date] = atof(rate.c_str());
     }
-    return (_data);
+    input.close();
 }
 
 void BitcoinExchange::parse_input(std::string filename)

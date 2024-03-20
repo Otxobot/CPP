@@ -16,6 +16,7 @@
 #include <iostream>
 #include <map>
 #include <fstream>
+#include <cstdlib>
 
 
 class BitcoinExchange
@@ -30,7 +31,7 @@ class BitcoinExchange
         ~BitcoinExchange();
 
         void parse_input(std::string filename);
-        std::map<std::string, float> getCsvData(const std::string &database1);
+        void getCsvData(const std::string &database1);
 
 };
 
