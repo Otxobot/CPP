@@ -63,5 +63,20 @@ void BitcoinExchange::getCsvData(const std::string &database1)
 
 void BitcoinExchange::parse_input(std::string filename)
 {
-    std::cout << "received " << filename << std::endl;
+    std::ifstream input(filename.c_str());
+    if (!input.is_open())
+    {
+        std::cout << "El archivo de entrada no se puede abrir" << std::endl;
+        return ;
+    }
+    std::string line;
+    while (std::getline(input, line))
+    {
+        if (line.find("|") == line.npos)
+        {
+            std::cout << "Formato incorrecto del archivo de entrada" << std::endl;
+            return ;
+        }
+        if ()
+    }
 }

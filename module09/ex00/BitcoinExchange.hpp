@@ -32,7 +32,6 @@ class BitcoinExchange
         ~BitcoinExchange();
 
         void parse_input(std::string filename);
-        //void getCsvData( std::string database1);
         void getCsvData( const std::string &database);
 
 };
