@@ -54,11 +54,48 @@ void BitcoinExchange::getCsvData(const std::string &database1)
         std::string rate = line.substr(line.find(",") + 1);
 		this->_data[date] = std::atof(rate.c_str());
     }
-    for (std::map<std::string, float>::iterator it = _data.begin(); it != _data.end(); it++)
-    {
-        std::cout << "Key: " << it->first << " Value: " << it->second << std::endl;
-    }
+    // for (std::map<std::string, float>::iterator it = _data.begin(); it != _data.end(); it++)
+    // {
+    //     std::cout << "Key: " << it->first << " Value: " << it->second << std::endl;
+    // }
     input.close();
+}
+
+int BitcoinExchange::validDate(std::string date)
+{
+    if (date.find('-') == date.npos)
+        return (1);
+    if (date.length() != 10 || date[4] != '-' || date[7] != '-')
+        return (1);
+    if (std::atoi(date.substr(0, 4).c_str()) < 2009 || std::atoi(date.substr(0, 4).c_str()) > 2022)
+        return (1);
+    if (std::atoi(date.substr(5, 2).c_str()) < 1 || std::atoi(date.substr(5, 2).c_str()) > 12)
+        return (1);
+    if (std::atoi(date.substr(8, 2).c_str()) < 1 || std::atoi(date.substr(8, 2).c_str()) > 31)
+		return (1);
+    if (std::atoi(date.substr(5, 2).c_str()) == 2 && std::atoi(date.substr(8, 2).c_str()) > 29)
+		return (1);
+    return (0);
+}
+
+int BitcoinExchange::validRate(std::string rate)
+{
+    
+}
+
+void BitcoinExchange::parse_line(std::string date, std::string rate)
+{
+    if (validDate(date) == 1)
+    {
+        std::cout << "La fecha es incorrecta" << std::endl;
+        return ;
+    }
+    else if (validRate(rate) == 1)
+    {
+        std::cout << "El valor es incorrecto" << std::endl;
+        return ;
+    }
+    std::cout << date << " => " << rate << " = " << std::endl;
 }
 
 void BitcoinExchange::parse_input(std::string filename)
@@ -72,11 +109,14 @@ void BitcoinExchange::parse_input(std::string filename)
     std::string line;
     while (std::getline(input, line))
     {
-        if (line.find("|") == line.npos)
+        size_t pos = line.find('|');
+        if (pos == line.npos)
         {
-            std::cout << "Formato incorrecto del archivo de entrada" << std::endl;
-            return ;
+            std::cout << "Error: Input incorrecto => " << line << std::endl;
+            continue ;
         }
-        if ()
+        std::string date = line.substr(0, line.find('|'));
+        std::string rate = line.substr(line.find('|') + 1);
+        this->parse_line(date, rate);
     }
 }

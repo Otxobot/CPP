@@ -21,5 +21,4 @@ int main(int ac, char **av)
     }
     BitcoinExchange exchange;
     exchange.parse_input(av[1]);
-    //exchange.printExchangeRates(archivo_exchange);
 }

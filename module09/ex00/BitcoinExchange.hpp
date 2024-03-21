@@ -31,8 +31,11 @@ class BitcoinExchange
         BitcoinExchange& operator=(const BitcoinExchange& rhs);
         ~BitcoinExchange();
 
-        void parse_input(std::string filename);
         void getCsvData( const std::string &database);
+        void parse_input(std::string filename);
+        void parse_line(std::string date, std::string rate);
+        int  validDate(std::string date);
+        int  validRate(std::string rate);
 
 };
 
