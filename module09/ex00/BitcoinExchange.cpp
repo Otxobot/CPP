@@ -51,8 +51,12 @@ void BitcoinExchange::getCsvData(const std::string &database1)
             return ;
         }
         std::string date = line.substr(0, line.find(","));
-        std::string rate = line.substr(line.find(",") + 2);
-        this->_data[date] = atof(rate.c_str());
+        std::string rate = line.substr(line.find(",") + 1);
+		this->_data[date] = std::atof(rate.c_str());
+    }
+    for (std::map<std::string, float>::iterator it = _data.begin(); it != _data.end(); it++)
+    {
+        std::cout << "Key: " << it->first << " Value: " << it->second << std::endl;
     }
     input.close();
 }
