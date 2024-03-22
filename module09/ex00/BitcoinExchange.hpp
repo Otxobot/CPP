@@ -24,7 +24,7 @@ class BitcoinExchange
 {
     private:
         std::map<std::string, float> _data;
-        
+        double enteringRate;
     public:
         BitcoinExchange();
         BitcoinExchange(const BitcoinExchange& obj);

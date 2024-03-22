@@ -65,8 +65,14 @@ int BitcoinExchange::validDate(std::string date)
 {
     if (date.find('-') == date.npos)
         return (1);
-    if (date.length() != 10 || date[4] != '-' || date[7] != '-')
+    if (date.length() != 11 || date[4] != '-' || date[7] != '-')
+    {
+        // std::cout << date.length() << std::endl;
+        // std::cout << date[9] << std::endl;
+        // std::cout << date[10] << std::endl;
+        // std::cout << date[11] << std::endl;
         return (1);
+    }
     if (std::atoi(date.substr(0, 4).c_str()) < 2009 || std::atoi(date.substr(0, 4).c_str()) > 2022)
         return (1);
     if (std::atoi(date.substr(5, 2).c_str()) < 1 || std::atoi(date.substr(5, 2).c_str()) > 12)
@@ -80,7 +86,20 @@ int BitcoinExchange::validDate(std::string date)
 
 int BitcoinExchange::validRate(std::string rate)
 {
-    
+    if (rate.size() == 0)
+        return (1);
+    if (rate.find(".") == rate.npos)
+	{
+		if (std::atoi(rate.c_str()) < 0 || std::atoi(rate.c_str()) > 1000)
+			return (1);
+	}
+	else
+	{
+		if (std::atof(rate.c_str()) < 0 || std::atof(rate.c_str()) > 1000)
+			return (1);
+	}
+    this->enteringRate = std::atof(rate.c_str());
+    return (0);
 }
 
 void BitcoinExchange::parse_line(std::string date, std::string rate)
@@ -95,7 +114,7 @@ void BitcoinExchange::parse_line(std::string date, std::string rate)
         std::cout << "El valor es incorrecto" << std::endl;
         return ;
     }
-    std::cout << date << " => " << rate << " = " << std::endl;
+    std::cout << date << " => " << rate << " = " << this->enteringRate * _data[rate] << std::endl;
 }
 
 void BitcoinExchange::parse_input(std::string filename)
