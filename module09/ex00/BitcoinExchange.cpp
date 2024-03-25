@@ -25,6 +25,7 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& rhs)
     if (this != &rhs)
     {
         this->_data = rhs._data;
+        this->enteringRate = rhs.enteringRate;
     }
     return (*this);
 }
@@ -61,6 +62,20 @@ void BitcoinExchange::getCsvData(const std::string &database1)
     input.close();
 }
 
+std::string BitcoinExchange::getEnteringDate(std::string date)
+{
+    std::map<std::string, float>::iterator it = this->_data.lower_bound(date);
+	if (it == this->_data.end())
+		return _data.rbegin()->first;
+	if (it->first == date)
+		return date;
+	if (it == this->_data.begin())
+		return it->first;
+	else
+		it--;
+	return it->first;
+}
+
 int BitcoinExchange::validDate(std::string date)
 {
     if (date.find('-') == date.npos)
@@ -81,6 +96,7 @@ int BitcoinExchange::validDate(std::string date)
 		return (1);
     if (std::atoi(date.substr(5, 2).c_str()) == 2 && std::atoi(date.substr(8, 2).c_str()) > 29)
 		return (1);
+    this->enteringDate = getEnteringDate(date);
     return (0);
 }
 
@@ -114,7 +130,7 @@ void BitcoinExchange::parse_line(std::string date, std::string rate)
         std::cout << "El valor es incorrecto" << std::endl;
         return ;
     }
-    std::cout << date << " => " << rate << " = " << this->enteringRate * _data[rate] << std::endl;
+    std::cout << date << " => " << this->enteringRate << " = " << this->enteringRate * _data[this->enteringDate] << std::endl;
 }
 
 void BitcoinExchange::parse_input(std::string filename)
