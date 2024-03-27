@@ -3,6 +3,11 @@
 
 #include <stack>
 #include <iostream>
+#include <sstream>
+#include <string>
+#include <cmath>
+
+#define RED "\033[0;31m"
 
 class RPN
 {
@@ -13,7 +18,7 @@ class RPN
         RPN();
         RPN(std::string input);
         RPN(const RPN &other);
-	    RPN &operator=(const RPN &other);
+	    RPN &operator=(const RPN &rhs);
 	    ~RPN();
 
 	    void calculate();

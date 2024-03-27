@@ -9,5 +9,5 @@ int main(int ac, char **av)
     }
     RPN rpn(av[1]);
     rpn.calculate();
-    return (0)
+    return (0);
 }
