@@ -24,6 +24,7 @@ RPN& RPN::operator=(const RPN &rhs)
 }
 
 RPN::~RPN(){
+	
 }
 
 void	RPN::calculate()
