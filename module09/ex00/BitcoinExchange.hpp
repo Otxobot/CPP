@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:46:34 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/19 17:46:35 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/29 17:15:25 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <cmath>
+#include <string>
 
 
 class BitcoinExchange

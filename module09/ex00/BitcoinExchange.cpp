@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:46:32 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/19 17:46:33 by abasante         ###   ########.fr       */
+/*   Updated: 2024/03/29 17:22:05 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,13 @@ void BitcoinExchange::getCsvData(const std::string &database1)
         }
         std::string date = line.substr(0, line.find(","));
         std::string rate = line.substr(line.find(",") + 1);
+        std::cout << "rate: " << rate << std::endl;
 		this->_data[date] = std::atof(rate.c_str());
     }
-    // for (std::map<std::string, float>::iterator it = _data.begin(); it != _data.end(); it++)
-    // {
-    //     std::cout << "Key: " << it->first << " Value: " << it->second << std::endl;
-    // }
+    for (std::map<std::string, float>::iterator it = _data.begin(); it != _data.end(); it++)
+    {
+        std::cout << "Key: " << it->first << " Value: " << it->second << std::endl;
+    }
     input.close();
 }
 
@@ -81,13 +82,7 @@ int BitcoinExchange::validDate(std::string date)
     if (date.find('-') == date.npos)
         return (1);
     if (date.length() != 11 || date[4] != '-' || date[7] != '-')
-    {
-        // std::cout << date.length() << std::endl;
-        // std::cout << date[9] << std::endl;
-        // std::cout << date[10] << std::endl;
-        // std::cout << date[11] << std::endl;
         return (1);
-    }
     if (std::atoi(date.substr(0, 4).c_str()) < 2009 || std::atoi(date.substr(0, 4).c_str()) > 2022)
         return (1);
     if (std::atoi(date.substr(5, 2).c_str()) < 1 || std::atoi(date.substr(5, 2).c_str()) > 12)
