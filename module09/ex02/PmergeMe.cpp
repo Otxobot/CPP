@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:48:41 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/29 16:48:43 by abasante         ###   ########.fr       */
+/*   Updated: 2024/04/01 15:01:35 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,35 @@ void PmergeMe::get_input(char **av)
         std::string line = av[i];
         if (line.empty())
             return ;
-        for (size_t a = 0; a < line.size(); a++)
+        size_t a = 0;
+        for (; a < line.size(); a++)
         {
             if (!isdigit(av[i][a]))
-                return ;
+            {
+                std::cout << "Error: invalid input" << std::endl;
+                exit(1);
+            }
         }
         double number = static_cast<double>(atof(av[i]));
         if (number < 0 || number > 2147483647)
-            return ;
+        {
+            std::cout << "Error: value not in range" << std::endl;
+            exit(1);
+        }
+        if (std::find(this->_vector.begin(), this->_vector.end(), static_cast<int>(number)) != this->_vector.end())
+        {
+		    std::cout << "Error: duplicate value" << std::endl;
+		    exit(1);
+	    }
         this->_vector.push_back(atoi(av[i]));
         this->_deque.push_back(atoi(av[i]));
     }
+}
+
+void PmergeMe::main_one(char **av)
+{
+    this->get_input(av);
+    this->show_deque_before();
+    std::cout << std::endl;
+    this->show_vector_before();
 }

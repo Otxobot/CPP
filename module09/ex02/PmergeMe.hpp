@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:48:46 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/29 16:48:47 by abasante         ###   ########.fr       */
+/*   Updated: 2024/04/01 14:37:28 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ class PmergeMe
 		PmergeMe &operator=(const PmergeMe &rhs);
 		~PmergeMe();
 
+        //main func:
+        void main_one(char **av);
         void get_input(char **av);
         void show_vector_before();
         void show_deque_before();
