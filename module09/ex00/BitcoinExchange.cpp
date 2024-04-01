@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 17:46:32 by abasante          #+#    #+#             */
-/*   Updated: 2024/03/29 17:22:05 by abasante         ###   ########.fr       */
+/*   Updated: 2024/04/01 12:27:04 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,12 @@ void BitcoinExchange::getCsvData(const std::string &database1)
         }
         std::string date = line.substr(0, line.find(","));
         std::string rate = line.substr(line.find(",") + 1);
-        std::cout << "rate: " << rate << std::endl;
 		this->_data[date] = std::atof(rate.c_str());
     }
-    for (std::map<std::string, float>::iterator it = _data.begin(); it != _data.end(); it++)
-    {
-        std::cout << "Key: " << it->first << " Value: " << it->second << std::endl;
-    }
+    // for (std::map<std::string, float>::iterator it = _data.begin(); it != _data.end(); it++)
+    // {
+    //     std::cout << "Key: " << it->first << " Value: " << it->second << std::endl;
+    // }
     input.close();
 }
 
