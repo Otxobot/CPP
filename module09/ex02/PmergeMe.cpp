@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:48:41 by abasante          #+#    #+#             */
-/*   Updated: 2024/04/04 14:39:27 by abasante         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:48:03 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,8 +123,26 @@ void PmergeMe::insertionSort(std::vector<int>& arr, int start, int end) {
     }
 }
 
+void PmergeMe::insertionSort(std::deque<int>& arr, int start, int end) 
+{
+    for (int i = start + 1; i <= end; ++i)
+    {
+        int key = arr[i];
+        int j = i - 1;
+
+        // Move elements of arr[0..i-1], that are greater than key,
+        // to one position ahead of their current position
+        while (j >= start && arr[j] > key) 
+        {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}
+
 // Function to merge two sorted subarrays
-void PmergeMe::merge(std::vector<int>& arr, int l, int m, int r) 
+void PmergeMe::merge_vector(std::vector<int>& arr, int l, int m, int r) 
 {
     int n1 = m - l + 1;
     int n2 = r - m;
@@ -169,8 +187,54 @@ void PmergeMe::merge(std::vector<int>& arr, int l, int m, int r)
     }
 }
 
+void PmergeMe::merge_deque(std::deque<int>& arr, int l, int m, int r) 
+{
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    std::deque<int> L(n1);
+    std::deque<int> R(n2);
+
+    for (int i = 0; i < n1; ++i)
+        L[i] = arr[l + i];
+    for (int j = 0; j < n2; ++j)
+        R[j] = arr[m + 1 + j];
+
+    int i = 0, j = 0, k = l;
+
+    while (i < n1 && j < n2) 
+    {
+        if (L[i] <= R[j]) 
+        {
+            arr[k] = L[i];
+            i++;
+        } 
+        else 
+        {
+            arr[k] = R[j];
+            j++;
+        }
+        k++;
+    }
+
+    while (i < n1) 
+    {
+        arr[k] = L[i];
+        i++;
+        k++;
+    }
+
+    while (j < n2) 
+    {
+        arr[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
 // Function to perform merge-insertion sort
-void PmergeMe::mergeInsertionSort(std::vector<int>& arr, int l, int r, int k) {
+void PmergeMe::mergeInsertionSort(std::vector<int>& arr, int l, int r, int k) 
+{
     if (l < r) 
     {
         if (r - l <= k) 
@@ -182,7 +246,25 @@ void PmergeMe::mergeInsertionSort(std::vector<int>& arr, int l, int r, int k) {
             int m = l + (r - l) / 2;
             mergeInsertionSort(arr, l, m, k);
             mergeInsertionSort(arr, m + 1, r, k);
-            merge(arr, l, m, r);
+            merge_vector(arr, l, m, r);
+        }
+    }
+}
+
+void PmergeMe::mergeInsertionSort(std::deque<int>& arr, int l, int r, int k) 
+{
+    if (l < r) 
+    {
+        if (r - l <= k) 
+        { // Perform insertion sort for small subarrays
+            insertionSort(arr, l, r);
+        } 
+        else 
+        {
+            int m = l + (r - l) / 2;
+            mergeInsertionSort(arr, l, m, k);
+            mergeInsertionSort(arr, m + 1, r, k);
+            merge_deque(arr, l, m, r);
         }
     }
 }

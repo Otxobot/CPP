@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:48:46 by abasante          #+#    #+#             */
-/*   Updated: 2024/04/04 14:34:00 by abasante         ###   ########.fr       */
+/*   Updated: 2024/04/04 16:48:21 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ class PmergeMe
         void show_deque_before();
         
         void mergeInsertionSort(std::vector<int>& arr, int l, int r, int k);
-        void merge(std::vector<int>& arr, int l, int m, int r);
+        void mergeInsertionSort(std::deque<int>& arr, int l, int r, int k);
+        void merge_vector(std::vector<int>& arr, int l, int m, int r);
+        void merge_deque(std::deque<int>& arr, int l, int m, int r);
         void insertionSort(std::vector<int>& arr, int start, int end);
+        void insertionSort(std::deque<int>& arr, int start, int end);
 };
 
 #endif
