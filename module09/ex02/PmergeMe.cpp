@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:48:41 by abasante          #+#    #+#             */
-/*   Updated: 2024/04/04 16:48:03 by abasante         ###   ########.fr       */
+/*   Updated: 2024/04/04 18:11:35 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ void PmergeMe::insertionSort(std::deque<int>& arr, int start, int end)
 }
 
 // Function to merge two sorted subarrays
-void PmergeMe::merge_vector(std::vector<int>& arr, int l, int m, int r) 
+void PmergeMe::merge(std::vector<int>& arr, int l, int m, int r) 
 {
     int n1 = m - l + 1;
     int n2 = r - m;
@@ -187,7 +187,7 @@ void PmergeMe::merge_vector(std::vector<int>& arr, int l, int m, int r)
     }
 }
 
-void PmergeMe::merge_deque(std::deque<int>& arr, int l, int m, int r) 
+void PmergeMe::merge(std::deque<int>& arr, int l, int m, int r) 
 {
     int n1 = m - l + 1;
     int n2 = r - m;
@@ -246,7 +246,7 @@ void PmergeMe::mergeInsertionSort(std::vector<int>& arr, int l, int r, int k)
             int m = l + (r - l) / 2;
             mergeInsertionSort(arr, l, m, k);
             mergeInsertionSort(arr, m + 1, r, k);
-            merge_vector(arr, l, m, r);
+            merge(arr, l, m, r);
         }
     }
 }
@@ -264,17 +264,42 @@ void PmergeMe::mergeInsertionSort(std::deque<int>& arr, int l, int r, int k)
             int m = l + (r - l) / 2;
             mergeInsertionSort(arr, l, m, k);
             mergeInsertionSort(arr, m + 1, r, k);
-            merge_deque(arr, l, m, r);
+            merge(arr, l, m, r);
         }
     }
 }
 
+// void PmergeMe::main_one(char **av)
+// {
+//     this->get_input(av);
+//     //this->show_deque_before();
+//     this->show_vector_before();
+//     this->mergeInsertionSort(this->_vector, 0, this->_vector.size() - 1, 5);
+//     std::cout << std::endl;
+//     this->show_vector_after();
+// }
+
 void PmergeMe::main_one(char **av)
 {
     this->get_input(av);
-    //this->show_deque_before();
-    this->show_vector_before();
-    this->mergeInsertionSort(this->_vector, 0, this->_vector.size() - 1, 5);
+    if (this->_vector.size() < 2)
+	{
+		std::cout << RED << "Error: invalid input" << std::endl;
+		exit(1);
+	}
+	this->show_vector_before();
     std::cout << std::endl;
+	struct timeval start, end;
+	gettimeofday(&start, NULL);
+	this->merge(this->_vector, 0, _vector.size() - 1, 5);
+	gettimeofday(&end, NULL);
     this->show_vector_after();
+    std::cout << std::endl;
+	long long time = (end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec);
+	std::cout << "Time it took to sort vector container: " << time << "us" << std::endl;
+	gettimeofday(&start, NULL);
+	this->merge(this->_deque, 0, _deque.size() - 1, 5);
+	gettimeofday(&end, NULL);
+	time = (end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec);
+	std::cout << "Time it took to sort deque container: " << time << "us" << std::endl;
 }
