@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:48:41 by abasante          #+#    #+#             */
-/*   Updated: 2024/04/04 14:34:30 by abasante         ###   ########.fr       */
+/*   Updated: 2024/04/04 14:36:39 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,8 +178,7 @@ void PmergeMe::mergeInsertionSort(std::vector<int>& arr, int l, int r, int k) {
 void PmergeMe::main_one(char **av)
 {
     this->get_input(av);
-    this->show_deque_before();
-    std::cout << std::endl;
+    //this->show_deque_before();
     this->show_vector_before();
     this->mergeInsertionSort(this->_vector, 0, this->_vector.size() - 1, 5);
     std::cout << std::endl;
