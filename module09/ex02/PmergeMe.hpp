@@ -39,12 +39,12 @@ class PmergeMe
         void show_vector_after();
         void show_deque_before();
         
-        void mergeInsertionSort(std::vector<int>& arr, int l, int r, int k);
-        void mergeInsertionSort(std::deque<int>& arr, int l, int r, int k);
-        void merge(std::vector<int>& arr, int l, int m, int r);
-        void merge(std::deque<int>& arr, int l, int m, int r);
-        void insertionSort(std::vector<int>& arr, int start, int end);
-        void insertionSort(std::deque<int>& arr, int start, int end);
+        void mergeInsertionSort(std::vector<int>& arr);
+        void mergeInsertionSort(std::deque<int>& arr);
+        // void merge(std::vector<int>& arr, int l, int m, int r);
+        // void merge(std::deque<int>& arr, int l, int m, int r);
+        void insertionSort(std::vector<int>& arr);
+        void insertionSort(std::deque<int>& arr);
 };
 
 #endif

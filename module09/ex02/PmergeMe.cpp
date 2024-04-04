@@ -95,189 +95,304 @@ void PmergeMe::get_input(char **av)
             std::cout << "Error: value not in range" << std::endl;
             exit(1);
         }
-        if (std::find(this->_vector.begin(), this->_vector.end(), static_cast<int>(number)) != this->_vector.end())
-        {
-		    std::cout << "Error: duplicate value" << std::endl;
-		    exit(1);
-	    }
+        // if (std::find(this->_vector.begin(), this->_vector.end(), static_cast<int>(number)) != this->_vector.end())
+        // {
+		//     std::cout << "Error: duplicate value" << std::endl;
+		//     exit(1);
+	    // }
         this->_vector.push_back(atoi(av[i]));
         this->_deque.push_back(atoi(av[i]));
     }
 }
 
 // Function to perform insertion sort
-void PmergeMe::insertionSort(std::vector<int>& arr, int start, int end) {
-    for (int i = start + 1; i <= end; ++i)
-    {
-        int key = arr[i];
-        int j = i - 1;
+// void PmergeMe::insertionSort(std::vector<int>& arr, int start, int end) {
+//     for (int i = start + 1; i <= end; ++i)
+//     {
+//         int key = arr[i];
+//         int j = i - 1;
 
-        // Move elements of arr[0..i-1], that are greater than key,
-        // to one position ahead of their current position
-        while (j >= start && arr[j] > key) 
-        {
-            arr[j + 1] = arr[j];
-            j--;
-        }
-        arr[j + 1] = key;
-    }
-}
-
-void PmergeMe::insertionSort(std::deque<int>& arr, int start, int end) 
-{
-    for (int i = start + 1; i <= end; ++i)
-    {
-        int key = arr[i];
-        int j = i - 1;
-
-        // Move elements of arr[0..i-1], that are greater than key,
-        // to one position ahead of their current position
-        while (j >= start && arr[j] > key) 
-        {
-            arr[j + 1] = arr[j];
-            j--;
-        }
-        arr[j + 1] = key;
-    }
-}
-
-// Function to merge two sorted subarrays
-void PmergeMe::merge(std::vector<int>& arr, int l, int m, int r) 
-{
-    int n1 = m - l + 1;
-    int n2 = r - m;
-
-    std::vector<int> L(n1);
-    std::vector<int> R(n2);
-
-    for (int i = 0; i < n1; ++i)
-        L[i] = arr[l + i];
-    for (int j = 0; j < n2; ++j)
-        R[j] = arr[m + 1 + j];
-
-    int i = 0, j = 0, k = l;
-
-    while (i < n1 && j < n2) 
-    {
-        if (L[i] <= R[j]) 
-        {
-            arr[k] = L[i];
-            i++;
-        } 
-        else 
-        {
-            arr[k] = R[j];
-            j++;
-        }
-        k++;
-    }
-
-    while (i < n1) 
-    {
-        arr[k] = L[i];
-        i++;
-        k++;
-    }
-
-    while (j < n2) 
-    {
-        arr[k] = R[j];
-        j++;
-        k++;
-    }
-}
-
-void PmergeMe::merge(std::deque<int>& arr, int l, int m, int r) 
-{
-    int n1 = m - l + 1;
-    int n2 = r - m;
-
-    std::deque<int> L(n1);
-    std::deque<int> R(n2);
-
-    for (int i = 0; i < n1; ++i)
-        L[i] = arr[l + i];
-    for (int j = 0; j < n2; ++j)
-        R[j] = arr[m + 1 + j];
-
-    int i = 0, j = 0, k = l;
-
-    while (i < n1 && j < n2) 
-    {
-        if (L[i] <= R[j]) 
-        {
-            arr[k] = L[i];
-            i++;
-        } 
-        else 
-        {
-            arr[k] = R[j];
-            j++;
-        }
-        k++;
-    }
-
-    while (i < n1) 
-    {
-        arr[k] = L[i];
-        i++;
-        k++;
-    }
-
-    while (j < n2) 
-    {
-        arr[k] = R[j];
-        j++;
-        k++;
-    }
-}
-
-// Function to perform merge-insertion sort
-void PmergeMe::mergeInsertionSort(std::vector<int>& arr, int l, int r, int k) 
-{
-    if (l < r) 
-    {
-        if (r - l <= k) 
-        { // Perform insertion sort for small subarrays
-            insertionSort(arr, l, r);
-        } 
-        else 
-        {
-            int m = l + (r - l) / 2;
-            mergeInsertionSort(arr, l, m, k);
-            mergeInsertionSort(arr, m + 1, r, k);
-            merge(arr, l, m, r);
-        }
-    }
-}
-
-void PmergeMe::mergeInsertionSort(std::deque<int>& arr, int l, int r, int k) 
-{
-    if (l < r) 
-    {
-        if (r - l <= k) 
-        { // Perform insertion sort for small subarrays
-            insertionSort(arr, l, r);
-        } 
-        else 
-        {
-            int m = l + (r - l) / 2;
-            mergeInsertionSort(arr, l, m, k);
-            mergeInsertionSort(arr, m + 1, r, k);
-            merge(arr, l, m, r);
-        }
-    }
-}
-
-// void PmergeMe::main_one(char **av)
-// {
-//     this->get_input(av);
-//     //this->show_deque_before();
-//     this->show_vector_before();
-//     this->mergeInsertionSort(this->_vector, 0, this->_vector.size() - 1, 5);
-//     std::cout << std::endl;
-//     this->show_vector_after();
+//         // Move elements of arr[0..i-1], that are greater than key,
+//         // to one position ahead of their current position
+//         while (j >= start && arr[j] > key) 
+//         {
+//             arr[j + 1] = arr[j];
+//             j--;
+//         }
+//         arr[j + 1] = key;
+//     }
 // }
+
+// void PmergeMe::insertionSort(std::deque<int>& arr, int start, int end) 
+// {
+//     for (int i = start + 1; i <= end; ++i)
+//     {
+//         int key = arr[i];
+//         int j = i - 1;
+
+//         // Move elements of arr[0..i-1], that are greater than key,
+//         // to one position ahead of their current position
+//         while (j >= start && arr[j] > key) 
+//         {
+//             arr[j + 1] = arr[j];
+//             j--;
+//         }
+//         arr[j + 1] = key;
+//     }
+// }
+
+// // Function to merge two sorted subarrays
+// void PmergeMe::merge(std::vector<int>& arr, int l, int m, int r) 
+// {
+//     int n1 = m - l + 1;
+//     int n2 = r - m;
+
+//     std::vector<int> L(n1);
+//     std::vector<int> R(n2);
+
+//     for (int i = 0; i < n1; ++i)
+//         L[i] = arr[l + i];
+//     for (int j = 0; j < n2; ++j)
+//         R[j] = arr[m + 1 + j];
+
+//     int i = 0, j = 0, k = l;
+
+//     while (i < n1 && j < n2) 
+//     {
+//         if (L[i] <= R[j]) 
+//         {
+//             arr[k] = L[i];
+//             i++;
+//         } 
+//         else 
+//         {
+//             arr[k] = R[j];
+//             j++;
+//         }
+//         k++;
+//     }
+
+//     while (i < n1) 
+//     {
+//         arr[k] = L[i];
+//         i++;
+//         k++;
+//     }
+
+//     while (j < n2) 
+//     {
+//         arr[k] = R[j];
+//         j++;
+//         k++;
+//     }
+// }
+
+// void PmergeMe::merge(std::deque<int>& arr, int l, int m, int r) 
+// {
+//     int n1 = m - l + 1;
+//     int n2 = r - m;
+
+//     std::deque<int> L(n1);
+//     std::deque<int> R(n2);
+
+//     for (int i = 0; i < n1; ++i)
+//         L[i] = arr[l + i];
+//     for (int j = 0; j < n2; ++j)
+//         R[j] = arr[m + 1 + j];
+
+//     int i = 0, j = 0, k = l;
+
+//     while (i < n1 && j < n2) 
+//     {
+//         if (L[i] <= R[j]) 
+//         {
+//             arr[k] = L[i];
+//             i++;
+//         } 
+//         else 
+//         {
+//             arr[k] = R[j];
+//             j++;
+//         }
+//         k++;
+//     }
+
+//     while (i < n1) 
+//     {
+//         arr[k] = L[i];
+//         i++;
+//         k++;
+//     }
+
+//     while (j < n2) 
+//     {
+//         arr[k] = R[j];
+//         j++;
+//         k++;
+//     }
+// }
+
+// // Function to perform merge-insertion sort
+// void PmergeMe::mergeInsertionSort(std::vector<int>& arr, int l, int r, int k) 
+// {
+//     if (l < r) 
+//     {
+//         if (r - l <= k) 
+//         { // Perform insertion sort for small subarrays
+//             insertionSort(arr, l, r);
+//         } 
+//         else 
+//         {
+//             int m = l + (r - l) / 2;
+//             mergeInsertionSort(arr, l, m, k);
+//             mergeInsertionSort(arr, m + 1, r, k);
+//             merge(arr, l, m, r);
+//         }
+//     }
+// }
+
+// void PmergeMe::mergeInsertionSort(std::deque<int>& arr, int l, int r, int k) 
+// {
+//     if (l < r) 
+//     {
+//         if (r - l <= k) 
+//         { // Perform insertion sort for small subarrays
+//             insertionSort(arr, l, r);
+//         } 
+//         else 
+//         {
+//             int m = l + (r - l) / 2;
+//             mergeInsertionSort(arr, l, m, k);
+//             mergeInsertionSort(arr, m + 1, r, k);
+//             merge(arr, l, m, r);
+//         }
+//     }
+// }
+
+void	PmergeMe::insertionSort(std::deque<int> &arr)
+{
+	for (size_t i = 1; i < arr.size(); i++)
+	{
+		int key = arr[i];
+		int j = i - 1;
+		while (j >= 0 && arr[j] > key)
+		{
+			arr[j + 1] = arr[j];
+			j--;
+		}
+		arr[j + 1] = key;
+	}
+}
+
+void	PmergeMe::insertionSort(std::vector<int> &arr)
+{
+	for (size_t i = 1; i < arr.size(); i++)
+	{
+		int key = arr[i];
+		int j = i - 1;
+		while (j >= 0 && arr[j] > key)
+		{
+			arr[j + 1] = arr[j];
+			j--;
+		}
+		arr[j + 1] = key;
+	}
+}
+
+void PmergeMe::mergeInsertionSort(std::deque<int> &arr)
+{
+	std::deque<int> u;
+	std::deque<int> v;
+
+    for (size_t i = 0; i < arr.size(); i++)
+	{
+		if (i % 2 == 0) 
+		{
+			u.push_back(arr[i]);
+		}
+		else
+		{
+			v.push_back(arr[i]);
+		}
+    }
+	if (u.size() > 1)
+    {
+        mergeInsertionSort(u);
+    }
+    if (v.size() > 1)
+    {
+        mergeInsertionSort(v);
+    }
+    size_t i = 0, j = 0, k = 0;
+    while (i < u.size() && j < v.size())
+    {
+        if (u[i] < v[j])
+        {
+            arr[k++] = u[i++];
+        }
+        else
+        {
+            arr[k++] = v[j++];
+        }
+    }
+
+    while (i < u.size())
+    {
+        arr[k++] = u[i++];
+    }
+    while (j < v.size())
+    {
+        arr[k++] = v[j++];
+    }
+    insertionSort(arr);
+}
+
+void PmergeMe::mergeInsertionSort(std::vector<int> &arr)
+{
+    std::vector<int> u;
+	std::vector<int> v;
+    for (size_t i = 0; i < arr.size(); i++)
+	{
+		if (i % 2 == 0) 
+		{
+			u.push_back(arr[i]);
+		}
+		else
+		{
+			v.push_back(arr[i]);
+		}
+    }
+	if (u.size() > 1)
+    {
+        mergeInsertionSort(u);
+    }
+    if (v.size() > 1)
+    {
+        mergeInsertionSort(v);
+    }
+    size_t i = 0, j = 0, k = 0;
+    while (i < u.size() && j < v.size())
+    {
+        if (u[i] < v[j])
+        {
+            arr[k++] = u[i++];
+        }
+        else
+        {
+            arr[k++] = v[j++];
+        }
+    }
+
+    while (i < u.size())
+    {
+        arr[k++] = u[i++];
+    }
+    while (j < v.size())
+    {
+        arr[k++] = v[j++];
+    }
+    insertionSort(arr);
+}
 
 void PmergeMe::main_one(char **av)
 {
@@ -287,18 +402,19 @@ void PmergeMe::main_one(char **av)
 		std::cout << RED << "Error: invalid input" << std::endl;
 		exit(1);
 	}
-	this->show_vector_before();
-    std::cout << std::endl;
-	struct timeval start, end;
+
+	struct timeval start;
+    struct timeval end;
 	gettimeofday(&start, NULL);
-	this->merge(this->_vector, 0, _vector.size() - 1, 5);
+	this->mergeInsertionSort(this->_vector);
 	gettimeofday(&end, NULL);
     this->show_vector_after();
     std::cout << std::endl;
+
 	long long time = (end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec);
 	std::cout << "Time it took to sort vector container: " << time << "us" << std::endl;
 	gettimeofday(&start, NULL);
-	this->merge(this->_deque, 0, _deque.size() - 1, 5);
+	this->mergeInsertionSort(this->_deque);
 	gettimeofday(&end, NULL);
 	time = (end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec);
 	std::cout << "Time it took to sort deque container: " << time << "us" << std::endl;
