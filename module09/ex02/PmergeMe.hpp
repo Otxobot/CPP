@@ -32,17 +32,14 @@ class PmergeMe
 		PmergeMe &operator=(const PmergeMe &rhs);
 		~PmergeMe();
 
-        //main func:
         void main_one(char **av);
         void get_input(char **av);
         void show_vector_before();
         void show_vector_after();
         void show_deque_before();
-        
+
         void mergeInsertionSort(std::vector<int>& arr);
         void mergeInsertionSort(std::deque<int>& arr);
-        // void merge(std::vector<int>& arr, int l, int m, int r);
-        // void merge(std::deque<int>& arr, int l, int m, int r);
         void insertionSort(std::vector<int>& arr);
         void insertionSort(std::deque<int>& arr);
 };
