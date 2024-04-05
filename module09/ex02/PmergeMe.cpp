@@ -137,95 +137,100 @@ void	PmergeMe::insertionSort(std::vector<int> &arr)
 
 void PmergeMe::mergeInsertionSort(std::deque<int> &arr)
 {
-	std::deque<int> u;
-	std::deque<int> v;
+	std::deque<int> deque1;
+	std::deque<int> deque2;
 
     for (size_t i = 0; i < arr.size(); i++)
 	{
 		if (i % 2 == 0) 
 		{
-			u.push_back(arr[i]);
+			deque1.push_back(arr[i]);
 		}
 		else
 		{
-			v.push_back(arr[i]);
+			deque2.push_back(arr[i]);
 		}
     }
-	if (u.size() > 1)
+	if (deque1.size() > 1)
     {
-        mergeInsertionSort(u);
+        mergeInsertionSort(deque1);
     }
-    if (v.size() > 1)
+    if (deque2.size() > 1)
     {
-        mergeInsertionSort(v);
+        mergeInsertionSort(deque2);
     }
-    size_t i = 0, j = 0, k = 0;
-    while (i < u.size() && j < v.size())
+    size_t i = 0;
+    size_t j = 0;
+    size_t k = 0;
+    while (i < deque1.size() && j < deque2.size())
     {
-        if (u[i] < v[j])
+        if (deque1[i] < deque2[j])
         {
-            arr[k++] = u[i++];
+            arr[k++] = deque1[i++];
         }
         else
         {
-            arr[k++] = v[j++];
+            arr[k++] = deque2[j++];
         }
     }
 
-    while (i < u.size())
+    while (i < deque1.size())
     {
-        arr[k++] = u[i++];
+        arr[k++] = deque1[i++];
     }
-    while (j < v.size())
+    while (j < deque2.size())
     {
-        arr[k++] = v[j++];
+        arr[k++] = deque2[j++];
     }
     insertionSort(arr);
 }
 
 void PmergeMe::mergeInsertionSort(std::vector<int> &arr)
 {
-    std::vector<int> u;
-	std::vector<int> v;
+    std::vector<int> vector1;
+	std::vector<int> vector2;
     for (size_t i = 0; i < arr.size(); i++)
 	{
 		if (i % 2 == 0) 
 		{
-			u.push_back(arr[i]);
+			vector1.push_back(arr[i]);
 		}
 		else
 		{
-			v.push_back(arr[i]);
+			vector2.push_back(arr[i]);
 		}
     }
-	if (u.size() > 1)
+	if (vector1.size() > 1)
     {
-        mergeInsertionSort(u);
+        mergeInsertionSort(vector1);
     }
-    if (v.size() > 1)
+    if (vector2.size() > 1)
     {
-        mergeInsertionSort(v);
+        mergeInsertionSort(vector2);
     }
-    size_t i = 0, j = 0, k = 0;
-    while (i < u.size() && j < v.size())
+
+    size_t i = 0;
+    size_t j = 0;
+    size_t k = 0;
+    while (i < vector1.size() && j < vector2.size())
     {
-        if (u[i] < v[j])
+        if (vector1[i] < vector2[j])
         {
-            arr[k++] = u[i++];
+            arr[k++] = vector1[i++];
         }
         else
         {
-            arr[k++] = v[j++];
+            arr[k++] = vector2[j++];
         }
     }
 
-    while (i < u.size())
+    while (i < vector1.size())
     {
-        arr[k++] = u[i++];
+        arr[k++] = vector1[i++];
     }
-    while (j < v.size())
+    while (j < vector2.size())
     {
-        arr[k++] = v[j++];
+        arr[k++] = vector2[j++];
     }
     insertionSort(arr);
 }
@@ -241,6 +246,8 @@ void PmergeMe::main_one(char **av)
 
 	struct timeval start;
     struct timeval end;
+    this->show_vector_before();
+    std::cout << std::endl;
 	gettimeofday(&start, NULL);
 	this->mergeInsertionSort(this->_vector);
 	gettimeofday(&end, NULL);
@@ -248,10 +255,10 @@ void PmergeMe::main_one(char **av)
     std::cout << std::endl;
 
 	long long time = (end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec);
-	std::cout << "Time it took to sort vector container: " << time << "us" << std::endl;
+	std::cout << "Time to process a range of "<< _vector.size() << " elements with std::vector : " << time << "us" << std::endl;
 	gettimeofday(&start, NULL);
 	this->mergeInsertionSort(this->_deque);
 	gettimeofday(&end, NULL);
 	time = (end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec);
-	std::cout << "Time it took to sort deque container: " << time << "us" << std::endl;
+	std::cout << "Time to process a range of "<< _deque.size() << " elements with std::deque : " << time << "us" << std::endl;
 }
