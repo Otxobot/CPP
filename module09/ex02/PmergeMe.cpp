@@ -95,11 +95,11 @@ void PmergeMe::get_input(char **av)
             std::cout << "Error: value not in range" << std::endl;
             exit(1);
         }
-        // if (std::find(this->_vector.begin(), this->_vector.end(), static_cast<int>(number)) != this->_vector.end())
-        // {
-		//     std::cout << "Error: duplicate value" << std::endl;
-		//     exit(1);
-	    // }
+        if (std::find(this->_vector.begin(), this->_vector.end(), static_cast<int>(number)) != this->_vector.end())
+        {
+		    std::cout << "Error: duplicate value" << std::endl;
+		    exit(1);
+	    }
         this->_vector.push_back(atoi(av[i]));
         this->_deque.push_back(atoi(av[i]));
     }
