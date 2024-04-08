@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:48:46 by abasante          #+#    #+#             */
-/*   Updated: 2024/04/04 18:01:31 by abasante         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:46:42 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <cmath>
 #include <sys/time.h>
 
-#define RED "\033[0;31m"
+
 
 class PmergeMe
 {

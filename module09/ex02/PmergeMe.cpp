@@ -6,7 +6,7 @@
 /*   By: abasante <abasante@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/29 16:48:41 by abasante          #+#    #+#             */
-/*   Updated: 2024/04/04 18:11:35 by abasante         ###   ########.fr       */
+/*   Updated: 2024/04/08 15:46:54 by abasante         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,7 +240,7 @@ void PmergeMe::main_one(char **av)
     this->get_input(av);
     if (this->_vector.size() < 2)
 	{
-		std::cout << RED << "Error: invalid input" << std::endl;
+		std::cout << "Error: invalid input" << std::endl;
 		exit(1);
 	}
 
